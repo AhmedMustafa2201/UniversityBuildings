@@ -1,0 +1,97 @@
+﻿@model UniversityBuildings.Models.Hospital_Buildings
+
+@{
+    ViewBag.Title = "تعديل معلومات المستشفيات";
+}
+
+
+@using (Html.BeginForm(new { id="toastr"}))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="form-horizontal col-md-4">
+            <h2 style="font-family:'Droid Arabic Kufi';text-align:center">تعديل معلومات المستشفيات</h2>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID)
+
+            <div class="form-group">
+                <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">@Html.DisplayNameFor(mod => mod.Hospital_Name)</h3>
+
+                @Html.EditorFor(model => model.Hospital_Name, new { htmlAttributes = new { @class = "form-control", placeholder = "اكتب هنا",dir="rtl" } })
+                @Html.ValidationMessageFor(model => model.Hospital_Name, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">@Html.DisplayNameFor(mod => mod.Hospital_NameEN)</h3>
+
+                @Html.EditorFor(model => model.Hospital_NameEN, new { htmlAttributes = new { @class = "form-control", placeholder = "اكتب هنا" } })
+                @Html.ValidationMessageFor(model => model.Hospital_NameEN, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">@Html.DisplayNameFor(mod => mod.Hospital_Genesis)</h3>
+
+                @Html.EditorFor(model => model.Hospital_Genesis, new { htmlAttributes = new { @class = "form-control", placeholder = "اكتب هنا", type="date" } })
+                @Html.ValidationMessageFor(model => model.Hospital_Genesis, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">@Html.DisplayNameFor(mod => mod.Hospital_Floors)</h3>
+
+                @Html.EditorFor(model => model.Hospital_Floors, new { htmlAttributes = new { @class = "form-control", placeholder = "اكتب هنا",dir="rtl", type = "number" } })
+                @Html.ValidationMessageFor(model => model.Hospital_Floors, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">@Html.DisplayNameFor(mod => mod.Hospital_Manager_Name)</h3>
+
+                @Html.EditorFor(model => model.Hospital_Manager_Name, new { htmlAttributes = new { @class = "form-control", placeholder = "اكتب هنا",dir="rtl" } })
+                @Html.ValidationMessageFor(model => model.Hospital_Manager_Name, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">@Html.DisplayNameFor(mod => mod.Hospital_Manager_NameEN)</h3>
+
+                @Html.EditorFor(model => model.Hospital_Manager_NameEN, new { htmlAttributes = new { @class = "form-control", placeholder = "اكتب هنا" } })
+                @Html.ValidationMessageFor(model => model.Hospital_Manager_NameEN, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">@Html.DisplayNameFor(mod => mod.Hospital_Sections)</h3>
+
+                @Html.TextAreaFor(model => model.Hospital_Sections, new { htmlAttributes = new { @class = "form-control", placeholder = "اكتب هنا", dir = "rtl" } })<br />
+                @Html.ValidationMessageFor(model => model.Hospital_Sections, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">@Html.DisplayNameFor(mod => mod.Hospital_SectionsEN)</h3>
+
+                @Html.TextAreaFor(model => model.Hospital_SectionsEN, new { htmlAttributes = new { @class = "form-control", placeholder = "اكتب هنا"} })<br />
+                @Html.ValidationMessageFor(model => model.Hospital_SectionsEN, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="تعديل" class="btn btn-primary" />
+
+                </div>
+            </div>
+        </div>
+  </div>
+}
+    <div>
+        @Html.ActionLink("Go Back", "Index")
+    </div>
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

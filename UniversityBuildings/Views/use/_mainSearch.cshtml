@@ -1,0 +1,64 @@
+﻿@model IEnumerable<UniversityBuildings.Models.Faculty_Buildings>
+
+@{
+    var currentlg = ViewBag.currentLanguage;
+}
+
+@{
+    if (currentlg == "en")
+    {
+        if (Model==null)
+        {
+            <h1 style="font-family:sans-serif;text-align:center">No Faculties to Show.</h1>
+        }
+        else
+        {
+            <div class="container">
+                <div style="align-items:center;margin-top:2rem" class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-4">
+                            <div style="margin-bottom:2rem" class="card border-success">
+                                <div class="card-body">
+                                    <h3 class="card-title">@Html.DisplayFor(modelItem => item.Faculty_NameEN)</h3>
+                                    <p class="card-text">@Html.DisplayFor(modelItem => item.Faculty_DeanEN), @Html.DisplayFor(modelItem => item.Faculty_Buildings_Number) Buildings</p>
+                                    <a href="~/use/learnMore?id=@item.ID" class="btn btn-outline-primary">Learn More <i class="fa fa-newspaper-o"></i></a>
+                                    <a href="~/use/attachmentsForFac?id=@item.ID" class="btn btn-outline-primary">Attachments</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        if (Model==null)
+        {
+            <h1 style="font-family:'Droid Arabic Kufi';text-align:center">لا توجد كليات للعرض</h1>
+        }
+        else
+        {
+            <div class="container">
+                <div style="align-items:center;direction:rtl; margin-top:2rem" class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div style="margin-bottom:2rem" class="col-md-4">
+                            <div class="card border-success text-right">
+                                <div class="card-body">
+                                    <h3 style="font-family:'Droid Arabic Kufi'" class="card-title">@Html.DisplayFor(modelItem => item.Faculty_Name)</h3>
+                                    <p style="font-family:'Droid Arabic Kufi'" dir="rtl" class="card-text">@Html.DisplayFor(modelItem => item.Faculty_Dean), @Html.DisplayFor(modelItem => item.Faculty_Buildings_Number) مبنى</p>
+                                    <a style="font-family:'Droid Arabic Kufi'" href="~/use/learnMore?id=@item.ID" class="btn btn-outline-primary">معرفة المزيد <i class="fa fa-newspaper-o"></i></a>
+                                    <a style="font-family:'Droid Arabic Kufi'" href="~/use/attachmentsForFac?id=@item.ID" class="btn btn-outline-primary">ملحقات المبنى</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    }
+}
+<br /><br /><br />
+

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<UniversityBuildings.Models.Images>
+
+@{
+    ViewBag.Title = "الصفحة الرئيسية";
+}
+<br />
+<div style="float:right">
+    <h4 style="font-family:'Droid Arabic Kufi'">
+        @if (User.IsInRole("Admin"))
+        {
+            <a href="~/Images/Create" class="btn btn-warning"><i class="fa fa-folder-o"></i> انشاء صورة لكلية</a> <a href="~/Images/CreateHospital" class="btn btn-danger"><i class="fa fa-folder-o"></i> انشاء صورة لمستشفى</a> <a href="~/Images/CreateOthers" class="btn btn-primary"><i class="fa fa-folder-o"></i> انشاء صورة لمبنى آخر</a>
+        }
+        else
+        {
+            <a href="~/Images/Create" class="btn btn-warning"><i class="fa fa-folder-o"></i> انشاء صورة لكلية</a>
+        }
+    </h4>
+</div>
+
+<table style="direction:rtl" class="table">
+    <tr>
+        <th style="text-align:right;font-family:'Droid Arabic Kufi'">
+            الصورة
+        </th>
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.Faculty_Buildings.Faculty_Name)
+        </th>
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.Hospital_Buildings.Hospital_Name)
+        </th>
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.Other_Buildings.Building_Name)
+        </th>
+        <th style="text-align:right"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="@Url.Content(item.Image_Path)" style="width:70px;height:70px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Faculty_Buildings.Faculty_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hospital_Buildings.Hospital_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Other_Buildings.Building_Name)
+            </td>
+            <td>
+                <a href="~/Images/Edit/@item.ID" class="btn btn-primary"><i class="fa fa-edit"></i> تعديل</a>
+                <a href="~/Images/Delete/@item.ID" class="btn btn-danger"><i class="fa fa-eraser"></i> حذف</a> 
+            </td>
+        </tr>
+    }
+</table>

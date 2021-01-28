@@ -1,0 +1,71 @@
+﻿@model UniversityBuildings.Models.Images
+
+@{
+    ViewBag.Title = "تعديل الصورة";
+}
+
+
+@using (Html.BeginForm("Edit", "Images", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="col-md-4"></div>
+    <div class="form-horizontal col-md-4">
+        <h2 style="font-family:'Droid Arabic Kufi'">تعديل الصورة</h2>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">مسار الصورة</h3>
+
+                <input type="file" accept="image/*" id="profimg" name="profimg" />
+                @Html.ValidationMessageFor(model => model.Image_Path, "", new { @class = "text-danger" })
+
+        </div>
+        @if (Model.Fac_ID != null)
+        {
+            <div class="form-group">
+                <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">اسم الكلية</h3>
+
+                @Html.DropDownList("Fac_ID", null, htmlAttributes: new { @class = "form-control", dir = "rtl", style = "height:40px" })
+                @Html.ValidationMessageFor(model => model.Fac_ID, "", new { @class = "text-danger" })
+
+            </div>
+        }
+        @if (Model.Hos_ID != null)
+        {
+            <div class="form-group">
+                <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">اسم المستشفى</h3>
+
+                @Html.DropDownList("Hos_ID", null, htmlAttributes: new { @class = "form-control", dir = "rtl", style = "height:40px" })
+                @Html.ValidationMessageFor(model => model.Fac_ID, "", new { @class = "text-danger" })
+
+            </div>
+        }
+        @if (Model.Other_ID != null)
+        {
+            <div class="form-group">
+                <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">الأخرى</h3>
+
+                @Html.DropDownList("Other_ID", null, htmlAttributes: new { @class = "form-control", dir = "rtl", style = "height:40px" })
+                @Html.ValidationMessageFor(model => model.Fac_ID, "", new { @class = "text-danger" })
+
+            </div>
+        }
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="تعديل" class="btn btn-primary" />
+        </div>
+    </div>
+        <div>
+            @Html.ActionLink("Back to List", "Index1")
+        </div>
+  </div>
+<div class="col-md-4"></div>
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

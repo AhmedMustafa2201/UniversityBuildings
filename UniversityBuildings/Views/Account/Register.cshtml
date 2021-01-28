@@ -1,0 +1,44 @@
+﻿@model UniversityBuildings.Models.RegisterViewModel
+@{
+    ViewBag.Title = "تسجيل الدخول";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            @Html.AntiForgeryToken()
+            <h2 style="text-align:center;font-family:'Droid Arabic Kufi'">انشاء حساب جديد</h2>
+            <hr />
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div class="form-group">
+                <h2 style="text-align:right;font-family:'Droid Arabic Kufi'">اسم المستخدم</h2>                <div class="col-md-7">
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <h2 style="text-align:right;font-family:'Droid Arabic Kufi'">كلمة المرور</h2>                <div class="col-md-7">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <h2 style="text-align:right;font-family:'Droid Arabic Kufi'">كلمة المرور مرة أخرى</h2>                <div class="col-md-7">
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-default" value="تسجيل الدخول" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    }
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

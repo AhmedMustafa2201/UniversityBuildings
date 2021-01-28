@@ -1,0 +1,50 @@
+﻿@model UniversityBuildings.Models.Other_Buildings
+
+@{
+    ViewBag.Title = "تفاصيل عن المباني الأخرى";
+}
+
+<h4 style="text-align:right;font-family:'Droid Arabic Kufi'">@Html.DisplayNameFor(model => model.Building_Name)</h4>
+
+<div>
+    <hr />
+    <table style="direction:rtl" class="table">
+        <tr>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Building_Name)
+            </th>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Building_Genesis)
+            </th>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Building_Units)
+            </th>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Building_Services)
+            </th>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Building_Responsible_Name)
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Building_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Building_Genesis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Building_Units)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Building_Services)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Building_Responsible_Name)
+            </td>
+        </tr>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Go Back", "Index")
+</p>

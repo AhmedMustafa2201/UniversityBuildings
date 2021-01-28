@@ -1,0 +1,71 @@
+﻿@model IEnumerable<UniversityBuildings.Models.Faculty_Buildings>
+@{
+    ViewBag.Title = "منطقة التعديل";
+}
+
+<h1 style="text-align:center;font-family:'Droid Arabic Kufi'">الكليات</h1>
+@if (User.IsInRole("Admin"))
+{
+    <h4 style="text-align:right;font-family:'Droid Arabic Kufi'">
+        <a href="~/Buildings/Create" class="btn btn-danger"><i class="fa fa-folder-o"></i> انشاء جديد</a>
+        @*@Html.ActionLink("انشاء جديد", "Create")*@
+    </h4>
+}
+<table style="direction:rtl" class="table">
+    <tr>
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.Faculty_Name)
+        </th>
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.Faculty_Dean)
+        </th>
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.Faculty_Genesis)
+        </th>
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.Faculty_Vision)
+        </th>
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.Faculty_Message)
+        </th>
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.Faculty_Details)
+        </th>
+        <th style="text-align:right"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+           <a href="~/Buildings/Edit/@item.ID">@Html.DisplayFor(modelItem => item.Faculty_Name)</a> 
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Faculty_Dean)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Faculty_Genesis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Faculty_Vision)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Faculty_Message)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Faculty_Details)
+        </td>
+        <td>
+            <a href="~/Buildings/Edit?id=@item.ID" class="btn btn-primary"><i class="fa fa-edit"></i> تعديل</a> 
+            <a href="~/Buildings/Details/@item.ID" class="btn btn-success"><i class="fa fa-table"></i> تفاصيل</a>
+            <a href="~/Attachment/Create" class="btn btn-danger">المباني الملحقة</a>
+            @*@Html.EncodedActionLink("تعديل", "Edit","Buildings", new { id = item.ID },new { style="color:blaack"})*@
+            @*@Html.ActionLink("تعديل", "Edit", new { id = item.ID })*@ 
+            @*@Html.ActionLink("تفاصيل", "Details", new { id=item.ID })*@
+        </td>
+    </tr>
+}
+</table>
+<br />
+@Html.Action("HospitalBuildings")
+<br />
+@Html.Action("OtherBuildings")

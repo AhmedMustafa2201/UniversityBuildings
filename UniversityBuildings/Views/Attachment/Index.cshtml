@@ -1,0 +1,66 @@
+﻿@model IEnumerable<UniversityBuildings.Models.Attachments>
+
+@{
+    ViewBag.Title = "منطقة التعديل";
+}
+
+<h4 style="text-align:right;font-family:'Droid Arabic Kufi'">
+    <a href="~/Attachment/Create" class="btn btn-danger"><i class="fa fa-folder-o"></i> انشاء جديد</a>
+</h4>
+
+<table style="direction:rtl" class="table">
+    <tr>
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.Att_Name)
+        </th>
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.Att_Section_Name)
+        </th>
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.Att_Place_of_it)
+        </th>
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.Att_Vision)
+        </th>
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.Att_Is_Inside)
+        </th>
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.Faculty_Buildings.Faculty_Name)
+        </th>
+        <th style="text-align:right"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Att_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Att_Section_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Att_Place_of_it)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Att_Vision)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Att_Is_Inside)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Faculty_Buildings.Faculty_Name)
+            </td>
+            <td>
+                <a href="~/Attachment/Edit/@item.ID" class="btn btn-primary"><i class="fa fa-edit"></i> تعديل</a>
+                <a href="~/Attachment/Details/@item.ID" class="btn btn-success"><i class="fa fa-table"></i> تفاصيل</a>
+                <a href="~/Attachment/Delete/@item.ID" class="btn btn-danger">حذف</a>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })*@
+            </td>
+        </tr>
+    }
+
+</table>

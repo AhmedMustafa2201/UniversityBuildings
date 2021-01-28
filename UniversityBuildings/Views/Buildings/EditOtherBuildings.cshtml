@@ -1,0 +1,105 @@
+﻿@model UniversityBuildings.Models.Other_Buildings
+
+@{
+    ViewBag.Title = "تعديل معلومات المباني الأخرى";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="form-horizontal col-md-4">
+            <h2 style="font-family:'Droid Arabic Kufi';text-align:center">تعديل معلومات المباني الأخرى</h2>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID)
+
+            <div class="form-group">
+                <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">@Html.DisplayNameFor(mod => mod.Building_Name)</h3>
+
+                @Html.EditorFor(model => model.Building_Name, new { htmlAttributes = new { @class = "form-control", placeholder = "اكتب هنا",dir="rtl" } })
+                @Html.ValidationMessageFor(model => model.Building_Name, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">@Html.DisplayNameFor(mod => mod.Building_NameEN)</h3>
+
+                @Html.EditorFor(model => model.Building_NameEN, new { htmlAttributes = new { @class = "form-control", placeholder = "اكتب هنا"} })
+                @Html.ValidationMessageFor(model => model.Building_NameEN, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">@Html.DisplayNameFor(mod => mod.Building_Units)</h3>
+
+                @Html.EditorFor(model => model.Building_Units, new { htmlAttributes = new { @class = "form-control", placeholder = "اكتب هنا",dir="rtl" } })
+                @Html.ValidationMessageFor(model => model.Building_Units, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">@Html.DisplayNameFor(mod => mod.Building_UnitsEN)</h3>
+
+                @Html.EditorFor(model => model.Building_UnitsEN, new { htmlAttributes = new { @class = "form-control", placeholder = "اكتب هنا"} })
+                @Html.ValidationMessageFor(model => model.Building_UnitsEN, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">@Html.DisplayNameFor(mod => mod.Building_Services)</h3>
+
+                @Html.TextAreaFor(model => model.Building_Services, new { htmlAttributes = new { @class = "form-control", placeholder = "اكتب هنا", dir = "rtl" } })<br />
+                @Html.ValidationMessageFor(model => model.Building_Services, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">@Html.DisplayNameFor(mod => mod.Building_ServicesEN)</h3>
+
+                @Html.TextAreaFor(model => model.Building_ServicesEN, new { htmlAttributes = new { @class = "form-control", placeholder = "اكتب هنا"} })<br />
+                @Html.ValidationMessageFor(model => model.Building_ServicesEN, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">@Html.DisplayNameFor(mod => mod.Building_Responsible_Name)</h3>
+
+                @Html.EditorFor(model => model.Building_Responsible_Name, new { htmlAttributes = new { @class = "form-control", placeholder = "اكتب هنا",dir="rtl" } })
+                @Html.ValidationMessageFor(model => model.Building_Responsible_Name, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">@Html.DisplayNameFor(mod => mod.Building_Responsible_NameEN)</h3>
+
+                @Html.EditorFor(model => model.Building_Responsible_NameEN, new { htmlAttributes = new { @class = "form-control", placeholder = "اكتب هنا"} })
+                @Html.ValidationMessageFor(model => model.Building_Responsible_NameEN, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">@Html.DisplayNameFor(mod => mod.Building_Genesis)</h3>
+
+                @Html.EditorFor(model => model.Building_Genesis, new { htmlAttributes = new { @class = "form-control", placeholder = "اكتب هنا", type = "date" } })
+                @Html.ValidationMessageFor(model => model.Building_Genesis, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="تعديل" class="btn btn-primary" />
+
+                </div>
+            </div>
+        </div>
+ </div>
+}
+    <div>
+        @Html.ActionLink("Go Back", "Index")
+    </div>
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

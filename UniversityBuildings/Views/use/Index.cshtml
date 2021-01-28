@@ -1,0 +1,237 @@
+﻿@{
+    Layout = "~/Views/Shared/_Master.cshtml";
+    var currentlg = ViewBag.currentLanguage;
+    if (currentlg == "en")
+    {
+        ViewBag.Title = "Home Page";
+    }
+    else
+    {
+        ViewBag.Title = "الصفحة الرئيسية";
+    }
+    var stat = new Random();
+}
+
+<!--==========================
+  Intro Section
+============================-->
+
+
+<section id="intro">
+
+    <div class="intro-content">
+
+        <div style="margin-top:-4rem" id="logo" class="pull-left">
+            <a target="_blank" href="https://www.minia.edu.eg/Minia/"><img src="~/unylogo.png" alt="Minia University" /></a>
+            <br />
+            <h2 id="theFont" style="font-family:'Droid Arabic Kufi',sans-serif">@UniversityBuildings.Resources.Resource.carousel</h2>
+            <a href="#main" class="smooth-scroll">
+                <div class="center">
+                    <div class="down"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div id="intro-carousel" class="owl-carousel">
+        <div class="item" style="background-image: url('./Content/ComponentMaster/img/intro-carousel/1.jpg');"></div>
+        <div class="item" style="background-image: url('./Content/ComponentMaster/img/intro-carousel/2.jpg');"></div>
+        <div class="item" style="background-image: url('./Content/ComponentMaster/img/intro-carousel/3.jpg');"></div>
+        <div class="item" style="background-image: url('./Content/ComponentMaster/img/intro-carousel/4.jpg');"></div>
+        <div class="item" style="background-image: url('./Content/ComponentMaster/img/intro-carousel/5.jpg');"></div>
+    </div>
+
+</section><!-- #intro -->
+
+<main id="main" style="margin-top:2rem">
+
+    <!--==========================
+      Services Section
+    ============================-->
+    <section id="services">
+        <div class="container">
+            @if (currentlg == "en")
+            {
+                <div class="section-header">
+                    <h2>Services of our Website</h2>
+                    <h3 style="text-align:center">The Services that provide to its Users</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="box wow fadeInLeft">
+                            <div class="icon"><i class="fa fa-bar-chart"></i></div>
+                            <p class="description">Provide users with an explanation of all the buildings of the University, such as the number of buildings and roles, departments and the history of construction and many other important information</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="box wow fadeInRight">
+                            <div class="icon"><i class="fa fa-picture-o"></i></div>
+                            <p class="description">Offer users all the images that include all the buildings and facilities of the University and display those images clear and coordinated, which are located on campus and outside</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="box wow fadeInLeft" data-wow-delay="0.2s">
+                            <div class="icon"><i class="fa fa-shopping-bag"></i></div>
+                            <p class="description">Provide users outside the university with a comprehensive explanation of all the data that helps them to move within the Friday easily</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="box wow fadeInRight" data-wow-delay="0.2s">
+                            <div class="icon"><i class="fa fa-map"></i></div>
+                            <p class="description">Provide a map of the University to facilitate the full user and explain to them all buildings and directions and the way to facilitate them</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            }
+            else
+            {
+                <div dir="rtl" class="section-header">
+                    <h2 style="text-align:right; font-family:'Droid Arabic Kufi'">خدمات الموقع</h2>
+                    <h3 dir="rtl" style="font-family:'Droid Arabic Kufi';text-align:center">الخدمات التي يتيحها الموقع للمستخدمين</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="box wow fadeInLeft">
+                            <div class="icon"><i class="fa fa-bar-chart"></i></div>
+                            <p style="text-align:right;font-family:'Droid Arabic Kufi'" class="description">يقدم للمستخدمين  شرح وافي لجميع المباني كعدد المباني والادوار والاقسام بالكليات وتاريخ البناء ومعلومات كثيره هامه اخري</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="box wow fadeInLeft" data-wow-delay="0.2s">
+                            <div class="icon"><i class="fa fa-shopping-bag"></i></div>
+                            <p style="text-align:right;font-family:'Droid Arabic Kufi'" class="description">يقدم للمستخدمين من خارج الجامعه شرح شامل موضح فيه كافه البيانات التي تساعدهم في التحرك داخل الجامعه بسهوله</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="box wow fadeInRight">
+                            <div class="icon"><i class="fa fa-picture-o"></i></div>
+                            <p style="text-align:right;font-family:'Droid Arabic Kufi'" class="description">يقدم للمستخدمين كافه الصور التي تشمل جميع مباني ومنشئات جامعيه وعرض تلك الصور بطريقه واضحه ومنسقه والتي توجد داخل الحرم الجامعي وخارجه</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="box wow fadeInRight" data-wow-delay="0.2s">
+                            <div class="icon"><i class="fa fa-map"></i></div>
+                            <p style="text-align:right;font-family:'Droid Arabic Kufi'" class="description">يقدم خريطه للجامعه كامله لتسهل علي المستخدمين وتوضح لهم جميع المباني والاتجاهات والطريق حتي تسهل لهم التحرك داخل الجامعه بطريقه سهله</p>
+                        </div>
+                    </div>
+
+                </div>
+            }
+
+        </div>
+    </section><!-- #services -->
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6909.3042892227495!2d30.7387726!3d28.1222197!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145b24c1dcd3ef3f%3A0xb20ba5abd78522a!2z2KzYp9mF2LnYqSDYp9mE2YXZhtmK2Kc!5e1!3m2!1sar!2seg!4v1540378468545" width="100%" height="600" frameborder="0" style="border:0"></iframe>
+            </div>
+            @if (currentlg == "en")
+            {
+                <div class="col-md-2">
+                    <h3 class="mapWords">Zoom into University Map to see in Details the place that you want to go</h3>
+                </div>
+            }
+            else
+            {
+                <div class="col-md-2">
+                    <h3 class="mapWords" style="font-family:'Droid Arabic Kufi';text-align:right">كبّر خريطة الجامعة لرؤية تفاصيل عن المكان الذي تود الذهاب اليه</h3>
+                </div>
+            }
+        </div>
+    </div>
+
+    <section id="testimonials" class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+        <div class="container">
+            @if (currentlg == "en")
+            {
+                <div class="section-header">
+                    <h2>Our Statistics related to Minia University</h2>
+                    <p>There are more than important numbers that related to students, faculties and other buildings in Minia University as shown in the following:-</p>
+                </div>
+                <div class="owl-carousel testimonials-carousel owl-loaded owl-drag">
+                    <div class="owl-stage-outer">
+                        <div class="owl-stage">
+                            <div class="owl-item cloned active" style="width: 370px;">
+                                <div class="testimonial-item">
+                                    <h2></h2>
+                                    <h3>John Larson</h3>
+                                </div>
+                            </div>
+                            <div class="owl-item cloned active" style="width: 370px;">
+                                <div class="testimonial-item">
+                                    <h2></h2>
+                                    <h3>Saul Goodman</h3>
+                                </div>
+                            </div>
+                            <div class="owl-item cloned active" style="width: 370px;">
+                                <div class="testimonial-item">
+                                    <h2>
+                                    </h2>
+                                    <h3>Sara Wilsson</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div dir="rtl" class="section-header">
+                    <h2 style="font-family:'Droid Arabic Kufi';text-align:right">بعض الاحصاءات المتعلقة بجامعة المنيا:-</h2>
+                    <p dir="rtl" style="font-family:'Droid Arabic Kufi';text-align:right">يوجد العديد من الأرقام الهامة الخصة بـ "الطلبة، الكليات والمباني الأخرى"    الخاصة بجامعة المنيا الظاهرة تالياً:-</p>
+                </div>
+                <div class="owl-carousel testimonials-carousel owl-loaded owl-drag">
+                    <div class="owl-stage-outer">
+                        <div class="owl-stage">
+                            <div class="row">
+                                <div class="owl-item cloned active col-md-4">
+                                    <div class="testimonial-item">
+                                        <h2>@stat.Next(100000,120000)</h2>
+                                        <h3 style="font-family:'Droid Arabic Kufi'">طالب مقيد بالجامعة</h3>
+                                    </div>
+                                </div>
+                                <div class="owl-item cloned active col-md-4">
+                                    <div class="testimonial-item">
+                                        <h2>20</h2>
+                                        <h3 style="font-family:'Droid Arabic Kufi'">كلية تابعة لجامعة المنيا</h3>
+                                    </div>
+                                </div>
+                                <div class="owl-item cloned active col-md-4">
+                                    <div class="testimonial-item">
+                                        <h2>@stat.Next(1000000,1342093)</h2>
+                                        <h3 style="font-family:'Droid Arabic Kufi'">العدد التقريبي لعدد العاملين داخل الجامعة</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </section>
+</main>
+@if (currentlg == "en")
+{
+    <div id="cookieConsent">
+        <div style="margin-top:-1px" id="closeCookieConsent">x</div>
+        This website is using Cookies for Security, privacy policy and adding some features. <a class="cookieConsentOK">I Agree</a>
+    </div>
+}
+else
+{
+    <div id="cookieConsent">
+        <div style="margin-top:-1px; float:left" id="closeCookieConsent">x</div>
+        <div><p dir="rtl" style="margin:0px;float:right;font-family:'Droid Arabic Kufi';padding-right:1rem;text-align:right">هذا الموقع يستخدم ملفات "Cookies" التي تساعد على انماء سياسة الخصوصية واضافة خصائص جديدة</p><a style="float:left;font-family:'Droid Arabic Kufi'" class="cookieConsentOK">أنا أوافق</a></div> 
+    </div>
+}

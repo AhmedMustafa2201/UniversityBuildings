@@ -1,0 +1,144 @@
+﻿@model UniversityBuildings.Models.Attachments
+
+@{
+    ViewBag.Title = "التفاصيل";
+}
+
+
+<div>
+    <h4 style="font-family:'Droid Arabic Kufi'">ملحقات الكلية</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Att_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Att_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Att_Section_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Att_Section_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Att_Place_of_it)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Att_Place_of_it)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Att_Vision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Att_Vision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Att_Message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Att_Message)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Att_Details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Att_Details)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Att_Stages_Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Att_Stages_Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Att_Floors_Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Att_Floors_Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Att_Is_Inside)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Att_Is_Inside)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Att_NameEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Att_NameEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Att_Section_NameEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Att_Section_NameEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Att_Place_of_itEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Att_Place_of_itEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Att_VisionEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Att_VisionEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Att_MessageEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Att_MessageEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Att_DetailsEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Att_DetailsEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Faculty_Buildings.Faculty_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Faculty_Buildings.Faculty_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

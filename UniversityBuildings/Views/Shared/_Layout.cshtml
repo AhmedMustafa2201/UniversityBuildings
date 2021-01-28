@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <title style="font-family:'Droid Arabic Kufi'">@ViewBag.Title - مباني ومنشآت جامعة المنيا</title>
+    <link href="~/unylogo.png" rel="icon">
+    <link href="http://fonts.googleapis.com/earlyaccess/droidarabickufi.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <link href="~/Content/ComponentMaster/lib/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               <b style="font-family:'Droid Arabic Kufi'">@Html.ActionLink("مباني ومنشآت جامعة المنيا", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</b> 
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Admin"))
+                        {
+                            <li style="font-family:'Droid Arabic Kufi'">@Html.ActionLink("تعديل معلومات كل المباني", "Index", "Buildings")</li>
+                            <li style="font-family:'Droid Arabic Kufi'">@Html.ActionLink("البوم الصور لكل مبنى", "Index1", "Images")</li>
+                        }
+                        else
+                        {
+                            <li style="font-family:'Droid Arabic Kufi'">@Html.ActionLink("البوم الصور للكلية", "Create", "Images")</li>
+                            <li style="font-family:'Droid Arabic Kufi'">@Html.ActionLink("تعديل معلومات الكلية", "Index", "Buildings")</li>
+                        }
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <hr />
+    <footer style="text-align:center;font-size:large">
+        <p>&copy; @DateTime.Now.Year - مباني ومنشآت جامعة المنيا - جميع الحقوق محفوظة </p>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

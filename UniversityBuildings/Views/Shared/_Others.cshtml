@@ -1,0 +1,61 @@
+﻿@model IEnumerable<UniversityBuildings.Models.Other_Buildings>
+
+@if (User.IsInRole("Admin"))
+{
+    <h1 style="text-align:center;font-family:'Droid Arabic Kufi'">المباني الأخرى</h1>
+    <h4 style="text-align:right;font-family:'Droid Arabic Kufi'">
+        <a href="~/Buildings/CreateOtherBuildings" class="btn btn-danger"><i class="fa fa-folder-o"></i> انشاء جديد</a>
+        @*@Html.ActionLink("انشاء جديد", "CreateOtherBuildings")*@
+    </h4>
+    <table style="direction:rtl" class="table">
+        <tr>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Building_Name)
+            </th>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Building_Units)
+            </th>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Building_Services)
+            </th>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Building_Responsible_Name)
+            </th>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Building_Genesis)
+            </th>
+            <th style="text-align:right"></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="~/Buildings/EditOtherBuildings/@item.ID">@Html.DisplayFor(modelItem => item.Building_Name)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Building_Units)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Building_Services)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Building_Responsible_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Building_Genesis)
+                </td>
+                <td>
+                    <a href="~/Buildings/EditOtherBuildings/@item.ID" class="btn btn-primary"><i class="fa fa-edit"></i> تعديل</a>
+                    <a href="~/Buildings/OtherBuildingsDetails/@item.ID" class="btn btn-success"><i class="fa fa-table"></i> تفاصيل</a>
+                    @*@Html.ActionLink("تعديل", "EditOtherBuildings", new { id = item.ID }) <br />
+                      @Html.ActionLink("تفاصيل", "OtherBuildingsDetails", new { id = item.ID }) <br />*@
+                </td>
+            </tr>
+        }
+
+    </table>
+
+}
+
+

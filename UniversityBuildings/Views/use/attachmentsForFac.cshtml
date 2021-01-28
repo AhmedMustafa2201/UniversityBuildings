@@ -1,0 +1,55 @@
+﻿@model IEnumerable<UniversityBuildings.Models.Attachments>
+
+@{
+    var currentlg = ViewBag.currentLanguage;
+
+    if (currentlg=="en")
+    {
+        ViewBag.Title = "Attachments";
+    }
+    else
+    {
+        ViewBag.Title = "الملحقات";
+    }
+    Layout = "~/Views/Shared/_Master.cshtml";
+}
+
+
+@if (currentlg == "en")
+{
+    <div class="container">
+        <div style="align-items:center;margin-top:2rem" class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <div style="margin-bottom:2rem" class="card border-success">
+                        <div class="card-body">
+                            <h3 class="card-title">@Html.DisplayFor(modelItem => item.Att_NameEN)</h3>
+                            <p class="card-text">@Html.DisplayFor(modelItem => item.Att_Section_NameEN)</p>
+                            <a href="~/use/LearnmoreForAtt?id=@item.ID" class="btn btn-outline-primary">Learn More <i class="fa fa-newspaper-o"></i></a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+else
+{
+    <div class="container">
+        <div style="align-items:center;direction:rtl; margin-top:2rem" class="row">
+            @foreach (var item in Model)
+            {
+                <div style="margin-bottom:2rem" class="col-md-4">
+                    <div class="card border-success text-right">
+                        <div class="card-body">
+                            <h3 style="font-family:'Droid Arabic Kufi'" class="card-title">@Html.DisplayFor(modelItem => item.Att_Name)</h3>
+                            <p style="font-family:'Droid Arabic Kufi'" dir="rtl" class="card-text">@Html.DisplayFor(modelItem => item.Att_Section_Name)</p>
+                            <a style="font-family:'Droid Arabic Kufi'" href="~/use/LearnmoreForAtt?id=@item.ID" class="btn btn-outline-primary">معرفة المزيد <i class="fa fa-newspaper-o"></i></a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}

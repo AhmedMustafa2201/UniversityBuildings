@@ -1,0 +1,764 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BuildingsDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Faculty_Number" Type="int" />
+        </EntityType>
+        <EntityType Name="Attachments">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Att_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Att_Section_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Att_Place_of_it" Type="nvarchar" MaxLength="200" />
+          <Property Name="Att_Vision" Type="nvarchar(max)" />
+          <Property Name="Att_Message" Type="nvarchar(max)" />
+          <Property Name="Att_Details" Type="nvarchar(max)" />
+          <Property Name="Att_Stages_Number" Type="smallint" />
+          <Property Name="Att_Floors_Number" Type="smallint" />
+          <Property Name="Att_Is_Inside" Type="bit" />
+          <Property Name="Att_NameEN" Type="nchar" MaxLength="40" />
+          <Property Name="Att_Section_NameEN" Type="nvarchar" MaxLength="40" />
+          <Property Name="Att_Place_of_itEN" Type="nchar" MaxLength="200" />
+          <Property Name="Att_VisionEN" Type="nvarchar(max)" />
+          <Property Name="Att_MessageEN" Type="nvarchar(max)" />
+          <Property Name="Att_DetailsEN" Type="nvarchar(max)" />
+          <Property Name="fac_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Faculty_Buildings">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Faculty_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Faculty_NameEN" Type="nchar" MaxLength="40" />
+          <Property Name="Faculty_Dean" Type="nvarchar" MaxLength="50" />
+          <Property Name="Faculty_DeanEN" Type="nchar" MaxLength="40" />
+          <Property Name="Faculty_Buildings_Number" Type="smallint" />
+          <Property Name="Faculty_Genesis" Type="nvarchar" MaxLength="20" />
+          <Property Name="Faculty_Vision" Type="nvarchar(max)" />
+          <Property Name="Faculty_VisionEN" Type="nvarchar(max)" />
+          <Property Name="Faculty_Message" Type="nvarchar(max)" />
+          <Property Name="Faculty_MessageEN" Type="nvarchar(max)" />
+          <Property Name="Faculty_Details" Type="nvarchar(max)" />
+          <Property Name="Faculty_DetailsEN" Type="nvarchar(max)" />
+          <Property Name="Faculty_Link" Type="nvarchar(max)" />
+          <Property Name="Faculty_Main_Building_Floors" Type="smallint" />
+          <Property Name="Faculty_Main_Building_Stages" Type="smallint" />
+          <Property Name="Faculty_Main_Building_Labs" Type="smallint" />
+          <Property Name="Faculty_Restaurant_Place" Type="nvarchar(max)" />
+          <Property Name="Faculty_Restaurant_PlaceEN" Type="nvarchar(max)" />
+          <Property Name="Faculty_Link_FaceBook" Type="nvarchar(max)" />
+          <Property Name="Faculty_Link_Twitter" Type="nvarchar(max)" />
+          <Property Name="Faculty_Link_YouTube" Type="nvarchar(max)" />
+          <Property Name="Faculty_Phone_Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Faculty_Email" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Hospital_Buildings">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Hospital_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Hospital_NameEN" Type="nchar" MaxLength="40" />
+          <Property Name="Hospital_Genesis" Type="nvarchar" MaxLength="20" />
+          <Property Name="Hospital_Floors" Type="smallint" />
+          <Property Name="Hospital_Manager_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Hospital_Manager_NameEN" Type="nchar" MaxLength="30" />
+          <Property Name="Hospital_Sections" Type="nvarchar(max)" />
+          <Property Name="Hospital_SectionsEN" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image_Path" Type="nvarchar(max)" />
+          <Property Name="Fac_ID" Type="int" />
+          <Property Name="Hos_ID" Type="int" />
+          <Property Name="Other_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Other_Buildings">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Building_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Building_NameEN" Type="nchar" MaxLength="40" />
+          <Property Name="Building_Units" Type="nvarchar(max)" />
+          <Property Name="Building_UnitsEN" Type="nvarchar(max)" />
+          <Property Name="Building_Services" Type="nvarchar(max)" />
+          <Property Name="Building_ServicesEN" Type="nvarchar(max)" />
+          <Property Name="Building_Responsible_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Building_Responsible_NameEN" Type="nchar" MaxLength="40" />
+          <Property Name="Building_Genesis" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_Attachments_Faculty_Buildings">
+          <End Role="Faculty_Buildings" Type="Self.Faculty_Buildings" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Attachments" Type="Self.Attachments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty_Buildings">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Attachments">
+              <PropertyRef Name="fac_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Images_Faculty_Buildings">
+          <End Role="Faculty_Buildings" Type="Self.Faculty_Buildings" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Images" Type="Self.Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty_Buildings">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="Fac_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Images_Hospital_Buildings">
+          <End Role="Hospital_Buildings" Type="Self.Hospital_Buildings" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Images" Type="Self.Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hospital_Buildings">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="Hos_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Images_Other_Buildings1">
+          <End Role="Other_Buildings" Type="Self.Other_Buildings" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Images" Type="Self.Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Other_Buildings">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="Other_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BuildingsDBModelStoreContainer">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Attachments" EntityType="Self.Attachments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Faculty_Buildings" EntityType="Self.Faculty_Buildings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hospital_Buildings" EntityType="Self.Hospital_Buildings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Other_Buildings" EntityType="Self.Other_Buildings" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Attachments_Faculty_Buildings" Association="Self.FK_Attachments_Faculty_Buildings">
+            <End Role="Faculty_Buildings" EntitySet="Faculty_Buildings" />
+            <End Role="Attachments" EntitySet="Attachments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Images_Faculty_Buildings" Association="Self.FK_Images_Faculty_Buildings">
+            <End Role="Faculty_Buildings" EntitySet="Faculty_Buildings" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Images_Hospital_Buildings" Association="Self.FK_Images_Hospital_Buildings">
+            <End Role="Hospital_Buildings" EntitySet="Hospital_Buildings" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Images_Other_Buildings1" Association="Self.FK_Images_Other_Buildings1">
+            <End Role="Other_Buildings" EntitySet="Other_Buildings" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BuildingsDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Faculty_Number" Type="Int32" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Attachments">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Att_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Att_Section_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Att_Place_of_it" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Att_Vision" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Att_Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Att_Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Att_Stages_Number" Type="Int16" />
+          <Property Name="Att_Floors_Number" Type="Int16" />
+          <Property Name="Att_Is_Inside" Type="Boolean" />
+          <Property Name="Att_NameEN" Type="String" MaxLength="40" FixedLength="true" Unicode="true" />
+          <Property Name="Att_Section_NameEN" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Att_Place_of_itEN" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="Att_VisionEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Att_MessageEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Att_DetailsEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fac_ID" Type="Int32" />
+          <NavigationProperty Name="Faculty_Buildings" Relationship="Self.FK_Attachments_Faculty_Buildings" FromRole="Attachments" ToRole="Faculty_Buildings" />
+        </EntityType>
+        <EntityType Name="Faculty_Buildings">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Faculty_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Faculty_NameEN" Type="String" MaxLength="40" FixedLength="true" Unicode="true" />
+          <Property Name="Faculty_Dean" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Faculty_DeanEN" Type="String" MaxLength="40" FixedLength="true" Unicode="true" />
+          <Property Name="Faculty_Buildings_Number" Type="Int16" />
+          <Property Name="Faculty_Genesis" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Faculty_Vision" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Faculty_VisionEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Faculty_Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Faculty_MessageEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Faculty_Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Faculty_DetailsEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Faculty_Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Faculty_Main_Building_Floors" Type="Int16" />
+          <Property Name="Faculty_Main_Building_Stages" Type="Int16" />
+          <Property Name="Faculty_Main_Building_Labs" Type="Int16" />
+          <Property Name="Faculty_Restaurant_Place" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Faculty_Restaurant_PlaceEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Faculty_Link_FaceBook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Faculty_Link_Twitter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Faculty_Link_YouTube" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Faculty_Phone_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Faculty_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Attachments" Relationship="Self.FK_Attachments_Faculty_Buildings" FromRole="Faculty_Buildings" ToRole="Attachments" />
+          <NavigationProperty Name="Images" Relationship="Self.FK_Images_Faculty_Buildings" FromRole="Faculty_Buildings" ToRole="Images" />
+        </EntityType>
+        <EntityType Name="Hospital_Buildings">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hospital_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Hospital_NameEN" Type="String" MaxLength="40" FixedLength="true" Unicode="true" />
+          <Property Name="Hospital_Genesis" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Hospital_Floors" Type="Int16" />
+          <Property Name="Hospital_Manager_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Hospital_Manager_NameEN" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Hospital_Sections" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Hospital_SectionsEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Images" Relationship="Self.FK_Images_Hospital_Buildings" FromRole="Hospital_Buildings" ToRole="Images" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image_Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Fac_ID" Type="Int32" />
+          <Property Name="Hos_ID" Type="Int32" />
+          <Property Name="Other_ID" Type="Int32" />
+          <NavigationProperty Name="Faculty_Buildings" Relationship="Self.FK_Images_Faculty_Buildings" FromRole="Images" ToRole="Faculty_Buildings" />
+          <NavigationProperty Name="Hospital_Buildings" Relationship="Self.FK_Images_Hospital_Buildings" FromRole="Images" ToRole="Hospital_Buildings" />
+          <NavigationProperty Name="Other_Buildings" Relationship="Self.FK_Images_Other_Buildings1" FromRole="Images" ToRole="Other_Buildings" />
+        </EntityType>
+        <EntityType Name="Other_Buildings">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Building_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Building_NameEN" Type="String" MaxLength="40" FixedLength="true" Unicode="true" />
+          <Property Name="Building_Units" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Building_UnitsEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Building_Services" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Building_ServicesEN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Building_Responsible_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Building_Responsible_NameEN" Type="String" MaxLength="40" FixedLength="true" Unicode="true" />
+          <Property Name="Building_Genesis" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Images" Relationship="Self.FK_Images_Other_Buildings1" FromRole="Other_Buildings" ToRole="Images" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attachments_Faculty_Buildings">
+          <End Role="Faculty_Buildings" Type="Self.Faculty_Buildings" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Attachments" Type="Self.Attachments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty_Buildings">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Attachments">
+              <PropertyRef Name="fac_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Images_Faculty_Buildings">
+          <End Role="Faculty_Buildings" Type="Self.Faculty_Buildings" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Images" Type="Self.Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty_Buildings">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="Fac_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Images_Hospital_Buildings">
+          <End Role="Hospital_Buildings" Type="Self.Hospital_Buildings" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Images" Type="Self.Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hospital_Buildings">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="Hos_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Images_Other_Buildings1">
+          <End Role="Other_Buildings" Type="Self.Other_Buildings" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Images" Type="Self.Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Other_Buildings">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="Other_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="BuildingsDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="Attachments" EntityType="Self.Attachments" />
+          <EntitySet Name="Faculty_Buildings" EntityType="Self.Faculty_Buildings" />
+          <EntitySet Name="Hospital_Buildings" EntityType="Self.Hospital_Buildings" />
+          <EntitySet Name="Images" EntityType="Self.Images" />
+          <EntitySet Name="Other_Buildings" EntityType="Self.Other_Buildings" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attachments_Faculty_Buildings" Association="Self.FK_Attachments_Faculty_Buildings">
+            <End Role="Faculty_Buildings" EntitySet="Faculty_Buildings" />
+            <End Role="Attachments" EntitySet="Attachments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Images_Faculty_Buildings" Association="Self.FK_Images_Faculty_Buildings">
+            <End Role="Faculty_Buildings" EntitySet="Faculty_Buildings" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Images_Hospital_Buildings" Association="Self.FK_Images_Hospital_Buildings">
+            <End Role="Hospital_Buildings" EntitySet="Hospital_Buildings" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Images_Other_Buildings1" Association="Self.FK_Images_Other_Buildings1">
+            <End Role="Other_Buildings" EntitySet="Other_Buildings" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BuildingsDBModelStoreContainer" CdmEntityContainer="BuildingsDBEntities">
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="BuildingsDBModel.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="BuildingsDBModel.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="BuildingsDBModel.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="BuildingsDBModel.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Faculty_Number" ColumnName="Faculty_Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Attachments">
+            <EntityTypeMapping TypeName="BuildingsDBModel.Attachments">
+              <MappingFragment StoreEntitySet="Attachments">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Att_Name" ColumnName="Att_Name" />
+                <ScalarProperty Name="Att_Section_Name" ColumnName="Att_Section_Name" />
+                <ScalarProperty Name="Att_Place_of_it" ColumnName="Att_Place_of_it" />
+                <ScalarProperty Name="Att_Vision" ColumnName="Att_Vision" />
+                <ScalarProperty Name="Att_Message" ColumnName="Att_Message" />
+                <ScalarProperty Name="Att_Details" ColumnName="Att_Details" />
+                <ScalarProperty Name="Att_Stages_Number" ColumnName="Att_Stages_Number" />
+                <ScalarProperty Name="Att_Floors_Number" ColumnName="Att_Floors_Number" />
+                <ScalarProperty Name="Att_Is_Inside" ColumnName="Att_Is_Inside" />
+                <ScalarProperty Name="Att_NameEN" ColumnName="Att_NameEN" />
+                <ScalarProperty Name="Att_Section_NameEN" ColumnName="Att_Section_NameEN" />
+                <ScalarProperty Name="Att_Place_of_itEN" ColumnName="Att_Place_of_itEN" />
+                <ScalarProperty Name="Att_VisionEN" ColumnName="Att_VisionEN" />
+                <ScalarProperty Name="Att_MessageEN" ColumnName="Att_MessageEN" />
+                <ScalarProperty Name="Att_DetailsEN" ColumnName="Att_DetailsEN" />
+                <ScalarProperty Name="fac_ID" ColumnName="fac_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Faculty_Buildings">
+            <EntityTypeMapping TypeName="BuildingsDBModel.Faculty_Buildings">
+              <MappingFragment StoreEntitySet="Faculty_Buildings">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Faculty_Name" ColumnName="Faculty_Name" />
+                <ScalarProperty Name="Faculty_NameEN" ColumnName="Faculty_NameEN" />
+                <ScalarProperty Name="Faculty_Dean" ColumnName="Faculty_Dean" />
+                <ScalarProperty Name="Faculty_DeanEN" ColumnName="Faculty_DeanEN" />
+                <ScalarProperty Name="Faculty_Buildings_Number" ColumnName="Faculty_Buildings_Number" />
+                <ScalarProperty Name="Faculty_Genesis" ColumnName="Faculty_Genesis" />
+                <ScalarProperty Name="Faculty_Vision" ColumnName="Faculty_Vision" />
+                <ScalarProperty Name="Faculty_VisionEN" ColumnName="Faculty_VisionEN" />
+                <ScalarProperty Name="Faculty_Message" ColumnName="Faculty_Message" />
+                <ScalarProperty Name="Faculty_MessageEN" ColumnName="Faculty_MessageEN" />
+                <ScalarProperty Name="Faculty_Details" ColumnName="Faculty_Details" />
+                <ScalarProperty Name="Faculty_DetailsEN" ColumnName="Faculty_DetailsEN" />
+                <ScalarProperty Name="Faculty_Link" ColumnName="Faculty_Link" />
+                <ScalarProperty Name="Faculty_Main_Building_Floors" ColumnName="Faculty_Main_Building_Floors" />
+                <ScalarProperty Name="Faculty_Main_Building_Stages" ColumnName="Faculty_Main_Building_Stages" />
+                <ScalarProperty Name="Faculty_Main_Building_Labs" ColumnName="Faculty_Main_Building_Labs" />
+                <ScalarProperty Name="Faculty_Restaurant_Place" ColumnName="Faculty_Restaurant_Place" />
+                <ScalarProperty Name="Faculty_Restaurant_PlaceEN" ColumnName="Faculty_Restaurant_PlaceEN" />
+                <ScalarProperty Name="Faculty_Link_FaceBook" ColumnName="Faculty_Link_FaceBook" />
+                <ScalarProperty Name="Faculty_Link_Twitter" ColumnName="Faculty_Link_Twitter" />
+                <ScalarProperty Name="Faculty_Link_YouTube" ColumnName="Faculty_Link_YouTube" />
+                <ScalarProperty Name="Faculty_Phone_Number" ColumnName="Faculty_Phone_Number" />
+                <ScalarProperty Name="Faculty_Email" ColumnName="Faculty_Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hospital_Buildings">
+            <EntityTypeMapping TypeName="BuildingsDBModel.Hospital_Buildings">
+              <MappingFragment StoreEntitySet="Hospital_Buildings">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Hospital_Name" ColumnName="Hospital_Name" />
+                <ScalarProperty Name="Hospital_NameEN" ColumnName="Hospital_NameEN" />
+                <ScalarProperty Name="Hospital_Genesis" ColumnName="Hospital_Genesis" />
+                <ScalarProperty Name="Hospital_Floors" ColumnName="Hospital_Floors" />
+                <ScalarProperty Name="Hospital_Manager_Name" ColumnName="Hospital_Manager_Name" />
+                <ScalarProperty Name="Hospital_Manager_NameEN" ColumnName="Hospital_Manager_NameEN" />
+                <ScalarProperty Name="Hospital_Sections" ColumnName="Hospital_Sections" />
+                <ScalarProperty Name="Hospital_SectionsEN" ColumnName="Hospital_SectionsEN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="BuildingsDBModel.Images">
+              <MappingFragment StoreEntitySet="Images">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image_Path" ColumnName="Image_Path" />
+                <ScalarProperty Name="Fac_ID" ColumnName="Fac_ID" />
+                <ScalarProperty Name="Hos_ID" ColumnName="Hos_ID" />
+                <ScalarProperty Name="Other_ID" ColumnName="Other_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Other_Buildings">
+            <EntityTypeMapping TypeName="BuildingsDBModel.Other_Buildings">
+              <MappingFragment StoreEntitySet="Other_Buildings">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Building_Name" ColumnName="Building_Name" />
+                <ScalarProperty Name="Building_NameEN" ColumnName="Building_NameEN" />
+                <ScalarProperty Name="Building_Units" ColumnName="Building_Units" />
+                <ScalarProperty Name="Building_UnitsEN" ColumnName="Building_UnitsEN" />
+                <ScalarProperty Name="Building_Services" ColumnName="Building_Services" />
+                <ScalarProperty Name="Building_ServicesEN" ColumnName="Building_ServicesEN" />
+                <ScalarProperty Name="Building_Responsible_Name" ColumnName="Building_Responsible_Name" />
+                <ScalarProperty Name="Building_Responsible_NameEN" ColumnName="Building_Responsible_NameEN" />
+                <ScalarProperty Name="Building_Genesis" ColumnName="Building_Genesis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="BuildingsDBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

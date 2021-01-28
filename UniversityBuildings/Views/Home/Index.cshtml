@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "البداية";
+}
+
+<div class="jumbotron">
+    <h1 style="text-align:right;font-family:'Droid Arabic Kufi'">المباني والمنشآت الجامعية <img style="width:170px;height:100px;float:left;margin-top:-3rem" src="~/unylogo.png" /> </h1>
+    <br />
+    <p style="text-align:right" class="lead">
+        مرحبا بك في الجزء المخصص للعمل على بيانات المباني الجامعية ،من خلال 
+        الموقع يمكنك الاطلاع والانشاء والتعديل والحذف 
+        بحسب سياسات وشروط الموقع 
+    </p>
+    @if (User.IsInRole("Admin"))
+    {
+        <a href="~/Account/Register" class="btn btn-default"><i class="fa fa-folder-o"></i> تسجيل دخول لمستخدم</a>
+    }
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2 style="text-align:right;font-family:'Droid Arabic Kufi'">حذف</h2>
+        <p style="text-align:right">
+           يتيح لك الموقع الحذف من البيانات اذا كانت لك 
+            الصلاحية اللازمة للقيام بذلك الأمر 
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2 style="text-align:right;font-family:'Droid Arabic Kufi'">تعديل</h2>
+        <p style="text-align:right">من الممكن لك أن تُتِم التعديل على جزء من قواعد بياناتنا 
+        على حسب الصلاحية المتاحة لك</p>
+    </div>
+    <div class="col-md-4">
+        <h2 style="text-align:right;font-family:'Droid Arabic Kufi'">انشاء</h2>
+        <p style="text-align:right">من أهم الأفعال في الموقع (الانشاء) للمباني ،المستشفيات والمباني الأخرى المتعلقة بالجامعة</p>
+    </div>
+</div>
+<br /><br /><br />

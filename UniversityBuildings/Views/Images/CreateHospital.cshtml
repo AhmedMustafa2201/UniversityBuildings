@@ -1,0 +1,45 @@
+﻿@model UniversityBuildings.Models.Images
+
+@{
+    ViewBag.Title = "انشاء صورة لمستشفى";
+}
+
+@using (Html.BeginForm("CreateHospital", "Images", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="col-md-4"></div>
+    <div class="col-md-4 form-horizontal">
+        <br /><br />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">مسار الصورة</h3>
+
+                <input type="file" accept="image/*" id="profimg" name="profimg" />
+                @Html.ValidationMessageFor(model => model.Image_Path, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="form-group">
+            <h3 style="text-align:right;font-family:'Droid Arabic Kufi'">اسم المستشفى</h3>
+                @Html.DropDownList("Hos_ID", null, "اسم المستشفى", htmlAttributes: new { @class = "form-control",dir="rtl",style="height:40px",required="required" })
+                @Html.ValidationMessageFor(model => model.Hos_ID, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="انشاء" class="btn btn-success" />
+
+        </div>
+    </div>
+        <div>
+            @Html.ActionLink("Go Back", "Index1")
+        </div>
+
+  </div>
+<div class="col-md-4"></div>
+}
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

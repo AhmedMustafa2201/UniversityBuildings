@@ -1,0 +1,60 @@
+﻿@model UniversityBuildings.Models.Images
+
+@{
+    ViewBag.Title = "حذف";
+    var thePath = Model.Image_Path;
+}
+
+<h3 style="font-family:'Droid Arabic Kufi'">هل تريد مسح الصورة؟</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            <img src="@Url.Content("/"+thePath)" style="width:70px;height:70px" />
+        </dt>
+
+        <dd>
+            الصورة
+        </dd>
+        @if (Model.Fac_ID != null)
+        {
+            <dt>
+                @Html.DisplayFor(model => model.Faculty_Buildings.Faculty_Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayNameFor(model => model.Faculty_Buildings.Faculty_Name)
+            </dd>
+        }
+        @if (Model.Hos_ID != null)
+        {
+            <dt>
+                @Html.DisplayFor(model => model.Hospital_Buildings.Hospital_Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayNameFor(model => model.Hospital_Buildings.Hospital_Name)
+            </dd>
+        }
+        @if (Model.Other_ID != null)
+        {
+            <dt>
+                @Html.DisplayFor(model => model.Other_Buildings.Building_Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayNameFor(model => model.Other_Buildings.Building_Name)
+            </dd>
+        }
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index1")
+        </div>
+    }
+</div>

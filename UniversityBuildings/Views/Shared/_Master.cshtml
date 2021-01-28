@@ -1,0 +1,376 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title style="font-family:'Droid Arabic Kufi'">@ViewBag.Title - @UniversityBuildings.Resources.Resource.appName</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="@UniversityBuildings.Resources.Resource.description" name="description">
+    <meta content="@UniversityBuildings.Resources.Resource.keywords" name="keywords">
+
+    <link href="~/unylogo.png" rel="icon">
+    <link href="~/Content/ComponentMaster/lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
+    <link href="~/Content/ComponentMaster/lib/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/earlyaccess/droidarabickufi.css" rel="stylesheet" />
+    @Styles.Render("~/bundles/menu")
+    @Styles.Render("~/bundles/uimin")
+    @Styles.Render("~/bundles/styles")
+</head>
+
+<body id="body">
+        <!--==========================
+          Top Bar
+        ============================-->
+        <section id="topbar" class="d-none d-lg-block">
+            <div class="container clearfix">
+                <div class="contact-info float-left">
+                    <i class="fa fa-envelope-o"></i> <a>president@mu.edu.eg</a>
+                </div>
+                <div class="social-links float-right">
+                    <a target="_blank" href="https://twitter.com/MiniaUniversit" class="twitter"><i class="fa fa-twitter"></i></a>
+                    <a target="_blank" href="https://www.facebook.com/NewsMiniaUniversity" class="facebook"><i class="fa fa-facebook"></i></a>
+                    <a target="_blank" href="https://www.youtube.com/channel/UCygOsueMxEEPUZSm4Ut4AXg/" class="instagram"><i class="fa fa-youtube"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!--==========================
+          Header
+        ============================-->
+        <header id="header">
+            <div class="container">
+                @{
+                    var currentlag = ViewBag.currentLanguage;
+                    if (currentlag == "en")
+                    {
+                        <div id="logo" class="pull-left">
+                            <h1 id="font"><i id="theI" style="font-size:xx-large;color:#50D8AF" class="fa fa-building"></i> <a style="font-family:'Droid Arabic Kufi',sans-serif" href="~/" class="scrollto">@UniversityBuildings.Resources.Resource.appName</a></h1>
+                        </div>
+                        <nav id="nav-menu-container">
+                            <ul class="nav-menu">
+                                @*<li><a href="~/" title="Home Page"><i style="font-size:x-large" class="fa fa-home"></i></a></li>*@
+                                <li class="menu-has-children">
+                                    <a style="font-size:medium;font-family:'Droid Arabic Kufi',sans-serif;cursor:pointer">@UniversityBuildings.Resources.Resource.searchFor</a>
+                                    <ul>
+                                        <li><a style="text-align:center; font-size:medium; font-family:'Droid Arabic Kufi',sans-serif" href="~/use/search">@UniversityBuildings.Resources.Resource.FacultyBuildings</a></li>
+                                        <li><a style="text-align:center; font-size:medium; font-family:'Droid Arabic Kufi',sans-serif" href="~/use/hospitalSearch">@UniversityBuildings.Resources.Resource.hospitals</a></li>
+                                        <li><a style="text-align:center; font-size:medium; font-family:'Droid Arabic Kufi',sans-serif" href="~/use/OtherBuildingSearch">@UniversityBuildings.Resources.Resource.otherBuildings</a></li>
+                                    </ul>
+                                </li>
+                                <li class="Mhide"><a style="font-size:medium;font-family:'Droid Arabic Kufi',sans-serif" href="#trends">Most Visited</a></li>
+                                <li><a style="font-size:medium;font-family:'Droid Arabic Kufi',sans-serif" href="#contact">@UniversityBuildings.Resources.Resource.contact</a></li>
+                                @{
+                                    foreach (var i in UniversityBuildings.Mine.SiteLanguages.AvailableLanguages)
+                                    {
+                                        <li style="font-family:'Droid Arabic Kufi',sans-serif">@Html.ActionLink(i.langFullName, "ChangeLanguage", "use", new { lang = i.langCultureName, url = HttpContext.Current.Request.RawUrl }, new { style = "font-family:'Droid Arabic Kufi',sans-serif;font-size:medium" })</li>
+                                    }
+                                }
+                            </ul>
+                        </nav><!-- #nav-menu-container -->
+               }
+               else
+               {
+                   <div id="logo" class="pull-right">
+                       <h1><a style="font-family:'Droid Arabic Kufi',sans-serif" href="~/" class="scrollto">@UniversityBuildings.Resources.Resource.appName </a> <i id="theI" style="font-size:xx-large;color:#50D8AF" class="fa fa-building"></i> </h1>
+                       
+                   </div>
+                   <nav id="nav-menu-container" class="pull-left" style="float:left;direction:ltr">
+                       <ul class="nav-menu">
+                           @{
+                               foreach (var i in UniversityBuildings.Mine.SiteLanguages.AvailableLanguages)
+                               {
+                                   <li style="font-family:'Droid Arabic Kufi',sans-serif">@Html.ActionLink(i.langFullName, "ChangeLanguage", "use", new { lang = i.langCultureName,url = HttpContext.Current.Request.RawUrl }, new { style = "font-family:'Droid Arabic Kufi',sans-serif;font-size:medium" })</li>
+                               }
+                           }
+                           <li><a style="font-size:medium;font-family:'Droid Arabic Kufi',sans-serif" href="#contact">@UniversityBuildings.Resources.Resource.contact</a></li>
+                           <li class="Mhide"><a style="font-size:medium;font-family:'Droid Arabic Kufi',sans-serif" href="#trends">الأكثر رواجاً</a></li>
+                           <li class="menu-has-children">
+                               <a style="font-size:medium;font-family:'Droid Arabic Kufi',sans-serif;cursor:pointer">@UniversityBuildings.Resources.Resource.searchFor</a>
+                               <ul>
+                                   <li><a style="text-align:center; font-size:medium; font-family:'Droid Arabic Kufi',sans-serif" href="~/use/search">@UniversityBuildings.Resources.Resource.FacultyBuildings</a></li>
+                                   <li><a style="text-align:center; font-size:medium; font-family:'Droid Arabic Kufi',sans-serif" href="~/use/hospitalSearch">@UniversityBuildings.Resources.Resource.hospitals</a></li>
+                                   <li><a style="text-align:center; font-size:medium; font-family:'Droid Arabic Kufi',sans-serif" href="~/use/OtherBuildingSearch">@UniversityBuildings.Resources.Resource.otherBuildings</a></li>
+                               </ul>
+                           </li>
+                           <li><a href="~/" title="الصفحة الرئيسية"><i style="font-size:x-large" class="fa fa-home"></i></a></li>
+                        </ul>
+                    </nav><!-- #nav-menu-container -->
+                    }
+                }
+            </div>
+        </header><!-- #header -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+
+        @RenderBody()
+    
+    <br /><br />
+    @if (currentlag == "en")
+    {
+        <section class="Mhide">
+            <div class="container">
+                <h2 style="font-family:'Droid Arabic Kufi',sans-serif;text-align:center">Most Trending Buildings</h2>
+                <div id="trends" class="row">
+                    <div class="main">
+                        <div class="navigation-circle">
+                            <div class="navigation-circle__inner">
+                                <svg class="navigation-circle-svg navigation-circle-svg--opaque" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewbox="0 0 320 320" style="enable-background:new 0 0 320 320;"><circle cx="160" cy="160" r="158" fill="none" stroke-width="5" stroke="#160736" stroke-linecap="round" stroke-miterlimit="10" style="stroke-dashoffset:0;stroke-dasharray:none;"></circle></svg>
+                                <svg class="navigation-circle-svg navigation-circle-svg--mask" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewbox="0 0 320 320" style="enable-background:new 0 0 320 320;">
+                                    <circle id="mask-circle" cx="160" cy="160" r="158" fill="none" stroke-width="2" stroke="#50d8af" stroke-linecap="round" stroke-miterlimit="10" style="stroke-dasharray:1005.3088px;"></circle>
+                                </svg>
+                                <ul class="navigation-circle__list">
+                                    <li class="navigation-circle-list-item">
+                                        <a class="navigation-circle-list-item__point" onclick="onClick(1)" onmouseenter="calculateOffset(1)" onMouseLeave="onMouseLeave()">
+                                            <div class="navigation-circle-list-item__meta">
+                                                <h3 class="navigation-circle-list-item__title">Conference Hall of Minia University</h3>
+                                                <h3 class="navigation-circle-list-item__subtitle">Which is the most Important Building that meet and take decisions on it</h3>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="navigation-circle-list-item">
+                                        <a class="navigation-circle-list-item__point" onclick="onClick(2)" onmouseenter="calculateOffset(2)" onMouseLeave="onMouseLeave()">
+                                            <div class="navigation-circle-list-item__meta">
+                                                <h3 class="navigation-circle-list-item__title">Central Restaurant</h3>
+                                                <h3 class="navigation-circle-list-item__subtitle">For Eating & Meeting the University Individuals</h3>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="navigation-circle-list-item">
+                                        <a class="navigation-circle-list-item__point" onclick="onClick(3)" onmouseenter="calculateOffset(3)" onMouseLeave="onMouseLeave()">
+                                            <div class="navigation-circle-list-item__meta">
+                                                <h3 class="navigation-circle-list-item__title">The main Library</h3>
+                                                <h3 class="navigation-circle-list-item__subtitle">Contains of some Important resources to read & study</h3>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="navigation-circle-list-item">
+                                        <a class="navigation-circle-list-item__point" onclick="onClick(4)" onmouseenter="calculateOffset(4)" onMouseLeave="onMouseLeave()">
+                                            <div class="navigation-circle-list-item__meta">
+                                                <h3 class="navigation-circle-list-item__title">Management Buildings</h3>
+                                                <h3 class="navigation-circle-list-item__subtitle">It consists of some other buildings</h3>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="navigation-circle-list-item">
+                                        <a class="navigation-circle-list-item__point" onclick="onClick(5)" onmouseenter="calculateOffset(5)" onMouseLeave="onMouseLeave()">
+                                            <div class="navigation-circle-list-item__meta">
+                                                <h3 class="navigation-circle-list-item__title">Museum of Modern Arts</h3>
+                                                <h3 class="navigation-circle-list-item__subtitle">The Ancient Egyptian pharaoes to watch & learn</h3>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="navigation-circle-list-item">
+                                        <a class="navigation-circle-list-item__point" onclick="onClick(6)" onmouseenter="calculateOffset(6)" onMouseLeave="onMouseLeave()">
+                                            <div class="navigation-circle-list-item__meta">
+                                                <h3 class="navigation-circle-list-item__title">ITC</h3>
+                                                <h3 class="navigation-circle-list-item__subtitle">Its all things about IT in the University</h3>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="navigation-circle-list-item">
+                                        <a class="navigation-circle-list-item__point" onclick="onClick(7)" onmouseenter="calculateOffset(7)" onMouseLeave="onMouseLeave()">
+                                            <div class="navigation-circle-list-item__meta">
+                                                <h3 class="navigation-circle-list-item__title">Head of University</h3>
+                                                <h3 class="navigation-circle-list-item__subtitle">The Building of Minia University Management</h3>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+    else
+    {
+        <section class="Mhide">
+            <div class="container">
+                <h2 style="font-family:'Droid Arabic Kufi',sans-serif;text-align:center">المباني الأكثر رواجاً</h2>
+                <div id="trends" class="row">
+                    <div class="main">
+                        <div class="navigation-circle">
+                            <div class="navigation-circle__inner">
+                                <svg class="navigation-circle-svg navigation-circle-svg--opaque" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewbox="0 0 320 320" style="enable-background:new 0 0 320 320;"><circle cx="160" cy="160" r="158" fill="none" stroke-width="5" stroke="#160736" stroke-linecap="round" stroke-miterlimit="10" style="stroke-dashoffset:0;stroke-dasharray:none;"></circle></svg>
+                                <svg class="navigation-circle-svg navigation-circle-svg--mask" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewbox="0 0 320 320" style="enable-background:new 0 0 320 320;">
+                                    <circle id="mask-circle" cx="160" cy="160" r="158" fill="none" stroke-width="2" stroke="#50d8af" stroke-linecap="round" stroke-miterlimit="10" style="stroke-dasharray:1005.3088px;"></circle>
+                                </svg>
+                                <ul class="navigation-circle__list">
+                                    <li class="navigation-circle-list-item">
+                                        <a class="navigation-circle-list-item__point" onclick="onClick(1)" onmouseenter="calculateOffset(1)" onMouseLeave="onMouseLeave()">
+                                            <div class="navigation-circle-list-item__meta">
+                                                <h3 dir="rtl" class="navigation-circle-list-item__title" style="text-align:right">قاعة المؤتمرات بالجامعة</h3>
+                                                <h3 dir="rtl" class="navigation-circle-list-item__subtitle" style="text-align:right">يتم من خلالها اتمام المؤتمرات العامة والهامة لكبار الزوار</h3>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="navigation-circle-list-item">
+                                        <a class="navigation-circle-list-item__point" onclick="onClick(2)" onmouseenter="calculateOffset(2)" onMouseLeave="onMouseLeave()">
+                                            <div class="navigation-circle-list-item__meta">
+                                                <h3 dir="rtl" class="navigation-circle-list-item__title" style="text-align:right">المطعم المركزي</h3>
+                                                <h3 dir="rtl" class="navigation-circle-list-item__subtitle" style="text-align:right">مطعم الوجبات لأفراد الجامععة</h3>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="navigation-circle-list-item">
+                                        <a class="navigation-circle-list-item__point" onclick="onClick(3)" onmouseenter="calculateOffset(3)" onMouseLeave="onMouseLeave()">
+                                            <div class="navigation-circle-list-item__meta">
+                                                <h3 dir="rtl" class="navigation-circle-list-item__title" style="text-align:right">المكتبة</h3>
+                                                <h3 dir="rtl" class="navigation-circle-list-item__subtitle" style="text-align:right">المكان الذي يدعم الجامعة والطلبة بالمعلومات</h3>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="navigation-circle-list-item">
+                                        <a class="navigation-circle-list-item__point" onclick="onClick(4)" onmouseenter="calculateOffset(4)" onMouseLeave="onMouseLeave()">
+                                            <div class="navigation-circle-list-item__meta">
+                                                <h3 dir="rtl" class="navigation-circle-list-item__title" style="text-align:right">مبنى الادارة</h3>
+                                                <h3 dir="rtl" class="navigation-circle-list-item__subtitle" style="text-align:right">المتكون من عدة مستويات بداخله من الادارة الهندسية وعدة مباني</h3>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="navigation-circle-list-item">
+                                        <a class="navigation-circle-list-item__point" onclick="onClick(5)" onmouseenter="calculateOffset(5)" onMouseLeave="onMouseLeave()">
+                                            <div class="navigation-circle-list-item__meta">
+                                                <h3 dir="rtl" class="navigation-circle-list-item__title" style="text-align:right">متحف الفن الحديث</h3>
+                                                <h3 dir="rtl" class="navigation-circle-list-item__subtitle" style="text-align:right">وبه بعض الآثار الفرعونية القديمة</h3>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="navigation-circle-list-item">
+                                        <a class="navigation-circle-list-item__point" onclick="onClick(6)" onmouseenter="calculateOffset(6)" onMouseLeave="onMouseLeave()">
+                                            <div class="navigation-circle-list-item__meta">
+                                                <h3 dir="rtl" class="navigation-circle-list-item__title" style="text-align:right">مركز تكنولوجيا المعلومات</h3>
+                                                <h3 dir="rtl" class="navigation-circle-list-item__subtitle" style="text-align:right">يحتوي على جميع الخدمات المتعلقة بتكنولوجيا المعلومات</h3>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="navigation-circle-list-item">
+                                        <a class="navigation-circle-list-item__point" onclick="onClick(7)" onmouseenter="calculateOffset(7)" onMouseLeave="onMouseLeave()">
+                                            <div class="navigation-circle-list-item__meta">
+                                                <h3 dir="rtl" class="navigation-circle-list-item__title" style="text-align:right">مبنى رئيس الجامعة</h3>
+                                                <h3 dir="rtl" class="navigation-circle-list-item__subtitle" style="text-align:right">المبنى الخاص برئيس الجامعة</h3>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+
+    <section id="contact" class="wow fadeInUp">
+        <div class="container">
+            <div class="section-header">
+                <h1 style="text-align:center;font-family:'Droid Arabic Kufi',sans-serif;color:#0C2E8A">@UniversityBuildings.Resources.Resource.contact</h1>
+            </div>
+            <div class="row contact-info">
+                <div class="col-md-4">
+                    <div class="contact-address">
+                        <i class="ion-ios-location-outline"></i>
+                        <h3 style="font-family:'Droid Arabic Kufi',sans-serif">@UniversityBuildings.Resources.Resource.address</h3>
+                        <address><a style="font-family:'Droid Arabic Kufi',sans-serif">@UniversityBuildings.Resources.Resource.addressPlace</a></address>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-phone">
+                        <i class="ion-ios-telephone-outline"></i>
+                        <h3 style="font-family:'Droid Arabic Kufi',sans-serif">@UniversityBuildings.Resources.Resource.phoneNumber</h3>
+                        <p><a>23342601</a></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-email">
+                        <i class="ion-ios-email-outline"></i>
+                        <h3 style="font-family:'Droid Arabic Kufi',sans-serif">@UniversityBuildings.Resources.Resource.email</h3>
+                        <p><a>president@mu.edu.eg</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <footer id="footer">
+            <div class="copyright">
+                <p style="font-family:'Droid Arabic Kufi',sans-serif">&copy; @DateTime.Now.Year @UniversityBuildings.Resources.Resource.rights<br />Developed and Designed By <a href="#myModal" data-toggle="modal" data-target="#myModal">Ahmed Mustafa Mohamed</a>, <a href="#hisModal" data-toggle="modal" data-target="#hisModal">Mohamed Khaled Haroun</a></p>
+            </div>
+        </footer><!-- #footer -->
+        <div class="modal fade" id="hisModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 style="text-align:left" class="modal-title"><i class="fa fa-photo"></i> <i class="fa fa-code"></i> Mohamed Khaled Haroun</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div style="margin-left:1rem" class="modal-body">
+                        <h3>Working Experience:-</h3>
+                        <ul style="list-style-type:circle">
+                            <li>Learn in ITC as a trainee.</li>
+                            <li>After training, I work for ITC for 3 Months.</li>
+                            <li>Gaining more Experience from the outside Organization.</li>
+                            <li>I worked for ENACTUS "SAMS" Minia "Media Team"</li>
+                        </ul>
+                        <hr />
+                        <h2>Education Tracks:-</h2>
+                        <ol type="1">
+                            <li>Programming Laguages: Markup languages, javascript,Design frameworks "Bootstrap - JQuery - ...etc".</li>
+                            <li>Photoshop and After Effects.</li>
+                            <li>Web Development Cource "MVC framework"</li>
+                        </ol>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 style="text-align:left" class="modal-title"><i class="fa fa-laptop"></i> <i class="fa fa-code"></i> Ahmed Mustafa Mohamed</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div style="margin-left:1rem" class="modal-body">
+                        <h3>Working Experience:-</h3>
+                        <ul style="list-style-type:circle">
+                            <li>Trainee "ITC" for 3 Months.</li>
+                            <li>After training, I am working with ITC as a freelance.</li>
+                            <li>Gaining more Experiences for other Organizations.</li>
+                        </ul>
+                        <hr />
+                        <h2>Education Tracks:-</h2>
+                        <ol type="1">
+                            <li>CS50 at Harvard Extention School.</li>
+                            <li>Full stack Web Development Coourses "MVC framework".</li>
+                            <li>Programming Laguages: C++, C#, java, markup languages, javascript, Design frameworks "Bootstrap - JQuery - ...etc".</li>
+                            <li>Looking for other related researches in IT.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/scripts")
+        @RenderSection("scripts", required: false)
+        <!-- Uncomment below if you want to use dynamic Google Maps -->
+        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8HeI8o-c1NppZA-92oYlXakhDPYR7XMY"></script> -->
+        @Scripts.Render("~/bundles/uijs")
+        @Scripts.Render("~/bundles/tneen")
+</body>
+</html>

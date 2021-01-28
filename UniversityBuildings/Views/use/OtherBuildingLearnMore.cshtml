@@ -1,0 +1,142 @@
+﻿@model UniversityBuildings.ViewModel.OtherImagesViewModel
+
+@{
+    Layout = "~/Views/Shared/_Master.cshtml";
+    ViewBag.Title = UniversityBuildings.Resources.Resource.OthersLearnMore;
+    var IMG = ViewBag.mainImage;
+    var currentlg = ViewBag.currentLanguage;
+    var flashName = Model.other_buildings.ID.ToString();
+    string path = "../FlashVideos/otherBuilding/" + flashName + ".mp4";
+
+}
+
+<div>
+    @{
+        if (currentlg == "en")
+        {
+            <section id="services">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>@Html.DisplayFor(model => model.other_buildings.Building_NameEN)</h2>
+                        @if (IMG != null)
+                        {
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <img style="height:400px;width:100%" src="@Url.Content(IMG)" alt="Learn More For Faculties" />
+                                    </div>
+                                    <div style="margin-bottom:1rem" class="col-md-3">
+                                        <p style="font-family:sans-serif">
+                                            <strong>Hello</strong> and Welcome to @Html.DisplayFor(model => model.other_buildings.Building_NameEN), It`s one of the
+                                            most excellent Building in Minia University. The Manager of The @Html.DisplayFor(model => model.other_buildings.Building_NameEN) is @Html.DisplayFor(model => model.other_buildings.Building_Responsible_NameEN) .
+                                            It was built in @Html.DisplayFor(model => model.other_buildings.Building_Genesis) .
+                                        </p>
+                                    </div>
+                                </div>
+                        }
+                        <br />
+                        <hr />
+                        <h1>Lets go to the Details of our Building:-</h1>
+                        <p>@Html.DisplayFor(model => model.other_buildings.Building_ServicesEN) And it enjoys with a special Location.</p>
+                        <hr />
+                        <h1>Other Details for the Building:-</h1>
+                        <p>
+                            @Html.DisplayFor(model => model.other_buildings.Building_NameEN) has @Html.DisplayFor(model => model.other_buildings.Building_UnitsEN) .
+                        </p>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="tneen-content tneen-display-container">
+                                    <!-- buttons -->
+                                    <a style="color:white" class="tneen-btn-floating noselection  tneen-display-left tneen-hover-dark-grey" onclick="plusDivs(-1)">&#10094;</a>
+                                    <a style="color:white" class="tneen-btn-floating noselection  tneen-display-right tneen-hover-dark-grey " onclick="plusDivs(+1)">&#10095;</a>
+                                    @foreach (var item in Model.images)
+                                    {
+                                        <div class="tneen-display-container mySlides tneen-animate-fading" style="display: block;">
+                                            <img class="tneen-animate-fading imgSlider" src="@Url.Content(item.Image_Path)">
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <h3 style="font-family:sans-serif;text-align:center">To Arrive to your Building <a class="btn btn-primary" style="text-align:center;font-family:'Droid Arabic Kufi',sans-serif;margin-top: .7rem" href="#flashModel" data-toggle="modal" data-target="#flashModel"><i class="fa fa-hand-pointer-o"></i> Press Here</a></h3>
+                    </div>
+                    <p>
+                        @Html.ActionLink("Go Back", "Index")
+                    </p>
+                </div>
+            </section>
+        }
+        else
+        {
+            <section id="services">
+                <div class="container">
+                    <div dir="rtl" class="section-header">
+                        <h2 style="text-align:right; font-family:'Droid Arabic Kufi'">@Html.DisplayFor(model => model.other_buildings.Building_Name)</h2>
+                        @if (IMG != null)
+                        {
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p dir="rtl" style="font-family:'Droid Arabic Kufi';text-align:right">أهلا وسهلا بكم في @Html.DisplayFor(model => model.other_buildings.Building_Name). يعد المبنى واحد من المباني المتميزة داخل جامعة المنيا.</p>
+                                    <p dir="rtl" style="font-family:'Droid Arabic Kufi';text-align:right">مدير @Html.DisplayFor(model => model.other_buildings.Building_Name)  هو <strong style="font-family:'Droid Arabic Kufi'">@Html.DisplayFor(model => model.other_buildings.Building_Responsible_Name)</strong> وهو المدير الحالي للمبنى .</p>
+                                    <p dir="rtl" style="font-family:'Droid Arabic Kufi';text-align:right">لقد تم انشاء المبنى في @Html.DisplayFor(model => model.other_buildings.Building_Genesis).</p>
+                                </div>
+                                <div style="margin-bottom:1rem" class="col-md-9">
+                                    <img style="height:400px;width:100%" src="@Url.Content(IMG)" alt="Learn More For Faculties" />
+                                </div>
+                            </div>
+                        }
+                        <br />
+                    </div>
+                    <h1 dir="rtl" style="font-family:'Droid Arabic Kufi';text-align:right">هيا بنا لمعرفة بعض التفاصيل المتعلقة بالمبنى:-</h1>
+                    <p dir="rtl" style="font-family:'Droid Arabic Kufi';text-align:center">@Html.DisplayFor(model => model.other_buildings.Building_Services) ويتمتع المبنى بمكان مميز للغاية.</p>
+                    <hr />
+                    <h1 dir="rtl" style="font-family:'Droid Arabic Kufi';text-align:right">تفاصيل أخرى متعلقة بالمبنى:-</h1>
+                    <p dir="rtl" style="font-family:'Droid Arabic Kufi';text-align:center">
+                        @Html.DisplayFor(model => model.other_buildings.Building_Name) لديه @Html.DisplayFor(model => model.other_buildings.Building_Units) .
+                    </p>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="tneen-content tneen-display-container">
+                                <!-- buttons -->
+                                <a style="color:white" class="tneen-btn-floating noselection  tneen-display-left tneen-hover-dark-grey" onclick="plusDivs(-1)">&#10094;</a>
+                                <a style="color:white" class="tneen-btn-floating noselection  tneen-display-right tneen-hover-dark-grey " onclick="plusDivs(+1)">&#10095;</a>
+                                @foreach (var item in Model.images)
+                                {
+                                    <div class="tneen-display-container mySlides tneen-animate-fading" style="display: block;">
+                                        <img class="tneen-animate-fading imgSlider" src="@Url.Content(item.Image_Path)">
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <h2 dir="rtl" style="font-family:'Droid Arabic Kufi';text-align:center">للوصول الى المبنى <a class="btn btn-primary" style="text-align:center;font-family:'Droid Arabic Kufi';margin-top: .7rem" href="#flashModel" data-toggle="modal" data-target="#flashModel"><i class="fa fa-hand-pointer-o"></i> اضغط هنا</a></h2>
+                    <p style="font-family:'Droid Arabic Kufi';text-align:right">
+                        @Html.ActionLink("الرجوع", "Index",null,new { style= "font-family:'Droid Arabic Kufi'" })
+                    </p>
+                </div>
+            </section>
+        }
+    }
+</div>
+<div class="modal fade" tabindex="-1" id="flashModel" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <video id="flashVideo" controls>
+                    <source src="@path" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+</div>

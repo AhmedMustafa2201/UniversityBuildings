@@ -1,0 +1,230 @@
+﻿@model UniversityBuildings.ViewModel.FacImagesViewModel
+@{
+    Layout = "~/Views/Shared/_Master.cshtml";
+    ViewBag.Title = UniversityBuildings.Resources.Resource.learnMore;
+    var currentlg = ViewBag.currentLanguage;
+    var IMG = ViewBag.mainImage;
+    var flashName = Model.faculty_buildings.ID.ToString();
+    string path = "../FlashVideos/faculty/" + flashName + ".mp4";
+}
+
+@{
+    if (currentlg == "en")
+    {
+        <section id="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>@Html.DisplayFor(model => model.faculty_buildings.Faculty_NameEN)</h2>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <img style="height:400px;width:100%" src="@Url.Content(IMG)" alt="Learn More For Faculties" />
+                            </div>
+                            <div style="margin-bottom:1rem" class="col-md-3">
+                                <p style="font-family:sans-serif">
+                                    <strong>Hello</strong> and Welcome to @Html.DisplayFor(model => model.faculty_buildings.Faculty_NameEN), It`s one of the
+                                    most excellent faculties in Minia University. The Dean of The @Html.DisplayFor(model => model.faculty_buildings.Faculty_NameEN) is @Html.DisplayFor(model => model.faculty_buildings.Faculty_DeanEN) .
+                                    It was built in @Html.DisplayFor(model => model.faculty_buildings.Faculty_Genesis) .
+                                </p>
+                            </div>
+                        </div>
+                    <br />
+                    <hr />
+                    <h1>Lets go to the Details of our Faculty:-</h1>
+                    <p style="font-family:sans-serif">@Html.DisplayFor(model => model.faculty_buildings.Faculty_DetailsEN) And it enjoys with a special Location.</p>
+                    <br />
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="box wow fadeInLeft">
+                                <h4 class="title">Vision of @Html.DisplayFor(model => model.faculty_buildings.Faculty_NameEN)</h4>
+                                <h5>@Html.DisplayFor(model => model.faculty_buildings.Faculty_VisionEN)</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="box wow fadeInRight">
+                                <h4 class="title">Message of @Html.DisplayFor(model => model.faculty_buildings.Faculty_NameEN)</h4>
+                                <h5>@Html.DisplayFor(model => model.faculty_buildings.Faculty_MessageEN)</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <h1>Some Calculations for The Faculty:-</h1>
+                    <p>
+                        @Html.DisplayFor(model => model.faculty_buildings.Faculty_NameEN) contains @Html.DisplayFor(model => model.faculty_buildings.Faculty_Buildings_Number) buildings .<br />
+                        In the Main Building, there`s @Html.DisplayFor(model => model.faculty_buildings.Faculty_Main_Building_Floors) floors,<br /> @Html.DisplayFor(model => model.faculty_buildings.Faculty_Main_Building_Labs) lab 
+                        and @Html.DisplayFor(model => model.faculty_buildings.Faculty_Main_Building_Stages) stages in it.
+                    </p>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="tneen-content tneen-display-container">
+                                <!-- buttons -->
+                                <a style="color:white" class="tneen-btn-floating noselection  tneen-display-left tneen-hover-dark-grey" onclick="plusDivs(-1)">&#10094;</a>
+                                <a style="color:white" class="tneen-btn-floating noselection  tneen-display-right tneen-hover-dark-grey " onclick="plusDivs(+1)">&#10095;</a>
+                                @foreach (var item in Model.images)
+                                {
+                                    <div class="tneen-display-container mySlides tneen-animate-fading" style="display: block;">
+                                        <img class="tneen-animate-fading imgSlider" src="@Url.Content(item.Image_Path)">
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    @if (Model.faculty_buildings.Faculty_Restaurant_PlaceEN != null)
+                    {
+                        <br />
+                        <p>
+                            The Restaurant place is @Html.DisplayFor(model => model.faculty_buildings.Faculty_Restaurant_PlaceEN) .
+                        </p>
+                    }
+                    <hr />
+                    <h1>Contact with the Faculty:-</h1>
+                    <p>
+                        You can go to <a target="_blank" href="@Model.faculty_buildings.Faculty_Link" class="twitter">The Faculty website</a> or you
+                        can visit its social media.<span style="margin-left:1rem"></span>
+                        @if (Model.faculty_buildings.Faculty_Link_Twitter != null)
+                        {
+                            <a target="_blank" style="margin-right:1rem" href="@Model.faculty_buildings.Faculty_Link_Twitter" class="twitter"><i class="fa fa-twitter"></i></a>
+                        }
+                        @if (Model.faculty_buildings.Faculty_Link_FaceBook != null)
+                        {
+                            <a target="_blank" style="margin-right:1rem" href="@Model.faculty_buildings.Faculty_Link_FaceBook" class="facebook"><i class="fa fa-facebook"></i></a>
+                        }
+                        @if (Model.faculty_buildings.Faculty_Link_YouTube != null)
+                        {
+                            <a target="_blank" href="@Model.faculty_buildings.Faculty_Link_YouTube" class="instagram"><i class="fa fa-youtube"></i></a>
+                        }
+                        <br />Or you can contact with the Faculty by its Email address @Model.faculty_buildings.Faculty_Email <br />or by Phone number @Model.faculty_buildings.Faculty_Phone_Number 
+                    </p>
+                </div>
+                <hr />
+                @if (Model.faculty_buildings.ID != 20 || Model.faculty_buildings.ID != 18 || Model.faculty_buildings.ID != 11 || Model.faculty_buildings.ID != 18 || Model.faculty_buildings.ID != 15)
+                {
+                    <h2 style="font-family:sans-serif;text-align:center">To Arrive to your Building <a class="btn btn-primary" style="text-align:center;font-family:'Droid Arabic Kufi',sans-serif;margin-top: .7rem" href="#flashModel" data-toggle="modal" data-target="#flashModel"><i class="fa fa-hand-pointer-o"></i> Press Here</a></h2>
+                }
+                <p>
+                    @Html.ActionLink("Go Back", "Index")
+                </p>
+          </div>
+      </section>
+    }
+    else
+    {
+        <section id="services">
+            <div class="container">
+                <div dir="rtl" class="section-header">
+                    <h2 style="text-align:right; font-family:'Droid Arabic Kufi'">@Html.DisplayFor(model => model.faculty_buildings.Faculty_Name)</h2>
+                    @if (IMG != null)
+                    {
+                        <div class="row">
+                            <div style="margin-bottom:1rem" class="col-md-9">
+                                <img style="height:400px;width:100%" src="@Url.Content(IMG)" alt="Learn More For Faculties" />
+                            </div>
+                            <div class="col-md-3">
+                                <p dir="rtl" style="font-family:'Droid Arabic Kufi';text-align:right">أهلا وسهلا بكم في @Html.DisplayFor(model => model.faculty_buildings.Faculty_Name). تعد الكلية واحدة من الكليات المتميزة داخل جامعة المنيا.</p>
+                                <p dir="rtl" style="font-family:'Droid Arabic Kufi';text-align:right">عميد الكلية هو  <strong style="font-family:'Droid Arabic Kufi'">@Html.DisplayFor(model => model.faculty_buildings.Faculty_Dean)</strong>  وهو العميد الحالي للكلية.</p>
+                                <p dir="rtl" style="font-family:'Droid Arabic Kufi';text-align:right">لقد تم انشاء الكلية في @Html.DisplayFor(model => model.faculty_buildings.Faculty_Genesis).</p>
+                            </div>
+                        </div>
+                    }
+                    <br />
+                </div>
+                <h1 dir="rtl" style="font-family:'Droid Arabic Kufi';text-align:right">هيا بنا لمعرفة بعض التفاصيل المتعلقة بالكلية:-</h1>
+                <p dir="rtl" style="font-family:'Droid Arabic Kufi';text-align:center">@Html.DisplayFor(model => model.faculty_buildings.Faculty_Details) وتتمتع الكلية بمكان مميز للغاية.</p>
+                <br />
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="box wow fadeInLeft">
+                            <h4 style="font-family:'Droid Arabic Kufi';text-align:right" class="title">رؤية @Html.DisplayFor(model => model.faculty_buildings.Faculty_Name)</h4>
+                            <h5 style="font-family:'Droid Arabic Kufi';text-align:right">@Html.DisplayFor(model => model.faculty_buildings.Faculty_Vision)</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="box wow fadeInRight">
+                            <h4 style="font-family:'Droid Arabic Kufi';text-align:right" class="title">رسالة @Html.DisplayFor(model => model.faculty_buildings.Faculty_Name)</h4>
+                            <h5 style="font-family:'Droid Arabic Kufi';text-align:right">@Html.DisplayFor(model => model.faculty_buildings.Faculty_Message)</h5>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <h1 dir="rtl" style="font-family:'Droid Arabic Kufi';text-align:right">بعض الاحصاءات المتعلقة بالكلية:-</h1>
+                <p dir="rtl" style="font-family:'Droid Arabic Kufi';text-align:center">
+                    @Html.DisplayFor(model => model.faculty_buildings.Faculty_Name) تحتوي على <br />@Html.DisplayFor(model => model.faculty_buildings.Faculty_Buildings_Number) مبنى .<br />
+                    يوجد في المبنى الرئيسي @Html.DisplayFor(model => model.faculty_buildings.Faculty_Main_Building_Floors) أدوار،<br /> @Html.DisplayFor(model => model.faculty_buildings.Faculty_Main_Building_Labs) معمل
+                    و @Html.DisplayFor(model => model.faculty_buildings.Faculty_Main_Building_Stages) مدرج بداخله .
+                </p>
+                <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            @*@ViewBag.none*@
+                            <div class="tneen-content tneen-display-container">
+                                <!-- buttons -->
+                                <a style="color:white;display:none" class="tneen-btn-floating noselection tneen-display-left tneen-hover-dark-grey" onclick="plusDivs(-1)">&#10094;</a>
+                                <a style="color:white;display:none" class="tneen-btn-floating noselection tneen-display-right tneen-hover-dark-grey" onclick="plusDivs(+1)">&#10095;</a>
+                                @foreach (var item in Model.images)
+                                {
+                                    <div class="tneen-display-container mySlides tneen-animate-fading" style="display: block;">
+                                        <img class="tneen-animate-fading imgSlider" src="@Url.Content(item.Image_Path)">
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                <br />
+                <p dir="rtl" style="font-family:'Droid Arabic Kufi';text-align:right">
+                    يقع مطعم الكلية في @Html.DisplayFor(model => model.faculty_buildings.Faculty_Restaurant_Place) .
+                </p>
+                <hr />
+                <h1 dir="rtl" style="font-family:'Droid Arabic Kufi';text-align:right">التواصل مع الكلية:-</h1>
+                <p dir="rtl" style="font-family:'Droid Arabic Kufi';text-align:right">
+                    يمكنكم الذهاب الى  <a target="_blank" href="@Model.faculty_buildings.Faculty_Link" style="font-family:'Droid Arabic Kufi'" class="twitter">موقع الكلية</a> 
+                    أو بامكانكم زيارة مواقع التواصل الاجتماعي الخاصة بالكلية<span style="margin-left:1rem"></span>
+                    @if (Model.faculty_buildings.Faculty_Link_Twitter != null)
+                    {
+                        <a target="_blank" style="margin-left:1rem" href="@Model.faculty_buildings.Faculty_Link_Twitter" class="twitter"><i class="fa fa-twitter"></i></a>
+                    }
+                    @if (Model.faculty_buildings.Faculty_Link_FaceBook != null)
+                    {
+                        <a target="_blank" style="margin-left:1rem" href="@Model.faculty_buildings.Faculty_Link_FaceBook" class="facebook"><i class="fa fa-facebook"></i></a>
+                    }
+                    @if (Model.faculty_buildings.Faculty_Link_YouTube != null)
+                    {
+                        <a target="_blank" href="@Model.faculty_buildings.Faculty_Link_YouTube" class="instagram"><i class="fa fa-youtube"></i></a>
+                    }
+                    <br />كما يمكنكم التواصل من خلال البريد الالكتروني الخاص بالكلية @Model.faculty_buildings.Faculty_Email <br />او التواصل عبر رقم الهاتف الخاص بالكلية @Model.faculty_buildings.Faculty_Phone_Number
+                </p>
+                <hr />
+                @if (Model.faculty_buildings.ID != 20 || Model.faculty_buildings.ID != 18 || Model.faculty_buildings.ID != 11 || Model.faculty_buildings.ID != 18 || Model.faculty_buildings.ID != 15)
+                {
+                    <h2 dir="rtl" style="font-family:'Droid Arabic Kufi';text-align:center">للوصول الى المبنى <a class="btn btn-primary" style="text-align:center;font-family:'Droid Arabic Kufi';margin-top: .7rem" href="#flashModel" data-toggle="modal" data-target="#flashModel"><i class="fa fa-hand-pointer-o"></i> اضغط هنا</a></h2>
+                }
+
+                <p style="font-family:'Droid Arabic Kufi';text-align:right">
+                    @Html.ActionLink("الرجوع", "Index",null,new { style= "font-family:'Droid Arabic Kufi'" })
+                </p>
+            </div>
+        </section>
+    }
+ }
+<div class="modal fade" tabindex="-1" id="flashModel" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <video id="flashVideo" controls>
+                    <source src="@path" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+</div>

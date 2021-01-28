@@ -1,0 +1,49 @@
+﻿@model UniversityBuildings.Models.Hospital_Buildings
+
+@{
+    ViewBag.Title = "تفاصيل عن المستشفى";
+}
+
+<div>
+    <h4 style="text-align:right;font-family:'Droid Arabic Kufi'">@Html.DisplayFor(model => model.Hospital_Name)</h4>
+    <hr />
+    <table style="direction:rtl" class="table">
+        <tr>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Hospital_Name)
+            </th>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Hospital_Genesis)
+            </th>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Hospital_Floors)
+            </th>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Hospital_Manager_Name)
+            </th>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Hospital_Sections)
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Hospital_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Hospital_Genesis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Hospital_Floors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Hospital_Manager_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Hospital_Sections)
+            </td>
+        </tr>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Go Back", "Index")
+</p>

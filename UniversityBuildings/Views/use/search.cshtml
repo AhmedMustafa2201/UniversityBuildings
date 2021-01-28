@@ -1,0 +1,140 @@
+﻿@model IEnumerable<UniversityBuildings.Models.Faculty_Buildings>
+@{ 
+    Layout = "~/Views/Shared/_Master.cshtml";
+    var currentlg = ViewBag.currentLanguage;
+    if (currentlg=="en")
+    {
+        ViewBag.Title = "Search";
+    }
+    else
+    {
+        ViewBag.Title = "بحث";
+    }
+}
+
+@using (Ajax.BeginForm(new AjaxOptions()
+                            {
+                                HttpMethod = "POST",
+                                UpdateTargetId = "searchResult",
+                                InsertionMode = InsertionMode.Replace
+                            }))
+{
+    
+        @Html.AntiForgeryToken()
+        <div class="flexbox" style="background-color:#636E72;padding-bottom:.5rem">
+            <div class="search">
+                <div style="float:right">
+                    <input dir="@UniversityBuildings.Resources.Resource.dir" style="font-family:'Droid Arabic Kufi',sans-serif" type="text" placeholder="@UniversityBuildings.Resources.Resource.searchPlace" required="" autocomplete="off" id="pname" name="pname" data-autocomplete="@Url.Action("quickSearch")">
+                </div>
+            </div>
+        </div>
+}
+<div id="searchResult">
+
+        @Html.Partial("_mainSearch", Model)
+
+</div>
+
+<section style="background-color:#F2F5F8" id="pics" class="wow fadeInUp">
+    <div class="container">
+        <div class="section-header">
+            <h1 style="text-align:center;font-family:'Droid Arabic Kufi',sans-serif">@UniversityBuildings.Resources.Resource.searchPhoto</h1>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row no-gutters">
+
+            <div class="col-lg-3 col-md-4">
+                <div class="portfolio-item wow fadeInUp">
+                    <a target="_blank" href="~/Content/ComponentMaster/img/faculty/1.jpg" class="portfolio-popup">
+                        <img src="~/Content/ComponentMaster/img/faculty/1.jpg" alt="">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info"><h2 style="font-family:'Droid Arabic Kufi',sans-serif" class="wow fadeInUp">@UniversityBuildings.Resources.Resource.showPhoto</h2></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+                <div class="portfolio-item wow fadeInUp">
+                    <a target="_blank" href="~/Content/ComponentMaster/img/faculty/2.jpg" class="portfolio-popup">
+                        <img src="~/Content/ComponentMaster/img/faculty/2.jpg" alt="">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info"><h2 style="font-family:'Droid Arabic Kufi',sans-serif" class="wow fadeInUp">@UniversityBuildings.Resources.Resource.showPhoto</h2></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+                <div class="portfolio-item wow fadeInUp">
+                    <a target="_blank" href="~/Content/ComponentMaster/img/faculty/3.jpg" class="portfolio-popup">
+                        <img src="~/Content/ComponentMaster/img/faculty/3.jpg" alt="">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info"><h2 style="font-family:'Droid Arabic Kufi',sans-serif" class="wow fadeInUp">@UniversityBuildings.Resources.Resource.showPhoto</h2></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+                <div class="portfolio-item wow fadeInUp">
+                    <a target="_blank" href="~/Content/ComponentMaster/img/faculty/4.jpg" class="portfolio-popup">
+                        <img src="~/Content/ComponentMaster/img/faculty/4.jpg" alt="">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info"><h2 style="font-family:'Droid Arabic Kufi',sans-serif" class="wow fadeInUp">@UniversityBuildings.Resources.Resource.showPhoto</h2></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+                <div class="portfolio-item wow fadeInUp">
+                    <a target="_blank" href="~/Content/ComponentMaster/img/faculty/5.jpg" class="portfolio-popup">
+                        <img src="~/Content/ComponentMaster/img/faculty/5.jpg" alt="">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info"><h2 style="font-family:'Droid Arabic Kufi',sans-serif" class="wow fadeInUp">@UniversityBuildings.Resources.Resource.showPhoto </h2></div>
+                        </div>                                                                                           
+                    </a>                                                                                                 
+                </div>                                                                                                   
+            </div>                                                                                                       
+            <div class="col-lg-3 col-md-4">
+                <div class="portfolio-item wow fadeInUp">
+                    <a target="_blank" href="~/Content/ComponentMaster/img/faculty/6.jpg" class="portfolio-popup">
+                        <img src="~/Content/ComponentMaster/img/faculty/6.jpg" alt="">                                         
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info"><h2 style="font-family:'Droid Arabic Kufi',sans-serif" class="wow fadeInUp">@UniversityBuildings.Resources.Resource.showPhoto </h2></div>
+                        </div>                                                                                           
+                    </a>                                                                                                 
+                </div>                                                                                                   
+            </div>                                                                                                         
+            <div class="col-lg-3 col-md-4">
+                <div class="portfolio-item wow fadeInUp">
+                    <a target="_blank" href="~/Content/ComponentMaster/img/faculty/7.jpg" class="portfolio-popup">
+                        <img src="~/Content/ComponentMaster/img/faculty/7.jpg" alt="">                                         
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info"><h2 style="font-family:'Droid Arabic Kufi',sans-serif" class="wow fadeInUp">@UniversityBuildings.Resources.Resource.showPhoto </h2></div>
+                        </div>                                                                                            
+                    </a>                                                                                                 
+                </div>                                                                                                   
+            </div>                                                                                                       
+            <div class="col-lg-3 col-md-4">
+                <div class="portfolio-item wow fadeInUp">
+                    <a target="_blank" href="~/Content/ComponentMaster/img/faculty/8.jpg" class="portfolio-popup">
+                        <img src="~/Content/ComponentMaster/img/faculty/8.jpg" alt="">                                         
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info"><h2 style="font-family:'Droid Arabic Kufi',sans-serif" class="wow fadeInUp">@UniversityBuildings.Resources.Resource.showPhoto </h2></div>
+                        </div>                                                                                           
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+@section scripts{
+    @Scripts.Render("~/bundles/ajax")
+}

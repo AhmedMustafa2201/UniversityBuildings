@@ -1,0 +1,140 @@
+﻿@model UniversityBuildings.Models.Faculty_Buildings
+
+@{
+    ViewBag.Title = "تفاصيل عن الكلية";
+}
+
+<div>
+    <h4 style="text-align:right;font-family:'Droid Arabic Kufi'">@Html.DisplayFor(modelItem => Model.Faculty_Name)</h4>
+    <hr />
+    <table style="direction:rtl" class="table">
+        <tr>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Faculty_Name)
+            </th>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Faculty_Dean)
+            </th>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Faculty_Genesis)
+            </th>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Faculty_Vision)
+            </th>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Faculty_Message)
+            </th>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Faculty_Details)
+            </th>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Faculty_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Faculty_Dean)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Faculty_Genesis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Faculty_Vision)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Faculty_Message)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Faculty_Details)
+            </td>
+        </tr>
+    </table>
+    <hr />
+    <table style="direction:rtl" class="table">
+        <tr>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Faculty_Buildings_Number)
+            </th>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Faculty_Main_Building_Floors)
+            </th>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Faculty_Main_Building_Stages)
+            </th>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Faculty_Main_Building_Labs)
+            </th>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Faculty_Restaurant_Place)
+            </th>
+            <th style="text-align:right">
+                @Html.DisplayNameFor(model => model.Faculty_Link)
+            </th>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Faculty_Buildings_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Faculty_Main_Building_Floors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Faculty_Main_Building_Stages)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Faculty_Main_Building_Labs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Faculty_Restaurant_Place)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Faculty_Link)
+            </td>
+        </tr>
+    </table>
+    <hr />
+    <table style="direction:rtl" class="table row">
+        <tr>
+            <th class="col-3" style="text-align:right">
+                @Html.DisplayNameFor(model => model.Faculty_Link_FaceBook)
+            </th>
+            <th class="col-2" style="text-align:right">
+                @Html.DisplayNameFor(model => model.Faculty_Link_Twitter)
+            </th>
+            <th class="col-3" style="text-align:right">
+                @Html.DisplayNameFor(model => model.Faculty_Link_YouTube)
+            </th>
+            <th class="col-2" style="text-align:right">
+                @Html.DisplayNameFor(model => model.Faculty_Email)
+            </th>
+            <th class="col-2" style="text-align:right">
+                @Html.DisplayNameFor(model => model.Faculty_Phone_Number)
+            </th>
+        </tr>
+
+        <tr>
+            <td class="col-3">
+                @Html.DisplayFor(modelItem => Model.Faculty_Link_FaceBook)
+            </td>
+            <td class="col-2">
+                @Html.DisplayFor(modelItem => Model.Faculty_Link_Twitter)
+            </td>
+            <td class="col-3">
+                @Html.DisplayFor(modelItem => Model.Faculty_Link_YouTube)
+            </td>
+            <td class="col-2">
+                @Html.DisplayFor(modelItem => Model.Faculty_Email)
+            </td>
+            <td class="col-2">
+                @Html.DisplayFor(modelItem => Model.Faculty_Phone_Number)
+            </td>
+
+        </tr>
+    </table>
+
+</div>
+    <p>
+        @Html.ActionLink("Go Back", "Index")
+    </p>
